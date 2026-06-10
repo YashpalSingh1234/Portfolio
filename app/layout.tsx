@@ -18,7 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Alex Mercer — AI Engineer',
+  title: 'Yashpal Singh — AI Engineer',
   description:
     'AI Engineer with 2 years R&D experience building production-grade ML pipelines, LLM applications, and RAG systems. Specialising in applied AI, generative AI, and MLOps.',
   keywords: [
@@ -33,22 +33,22 @@ export const metadata: Metadata = {
     'FastAPI',
     'Python',
   ],
-  authors: [{ name: 'Alex Mercer' }],
-  creator: 'Alex Mercer',
+  authors: [{ name: 'Yashpal Singh' }],
+  creator: 'Yashpal Singh',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://alexmercer.dev',
-    title: 'Alex Mercer — AI Engineer',
+    url: 'https://yashpal.dev',
+    title: 'Yashpal Singh — AI Engineer',
     description:
       'AI Engineer building production-grade AI systems. LLM, RAG, MLOps, and applied machine learning.',
-    siteName: 'Alex Mercer Portfolio',
+    siteName: 'Yashpal Singh Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Alex Mercer — AI Engineer',
+    title: ' Yashpal Singh — AI Engineer',
     description: 'AI Engineer building production-grade AI systems.',
-    creator: '@alexmercer',
+    creator: '@yashpal',
   },
   robots: {
     index: true,

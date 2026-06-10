@@ -11,7 +11,6 @@ const NAV_LINKS = [
   { href: '#projects', label: 'Projects' },
   { href: '#skills', label: 'Skills' },
   { href: '#architecture', label: 'Architecture' },
-  { href: '#blog', label: 'Blog' },
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -27,7 +26,6 @@ export function Navbar() {
     setScrolled(latest > 20)
   })
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
@@ -58,7 +56,7 @@ export function Navbar() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-500/10 border border-brand-500/20">
               <Cpu className="h-4 w-4 text-[var(--brand)]" />
             </div>
-            <span>alex.mercer</span>
+            <span>yashpal.singh</span>
           </a>
 
           {/* Desktop nav */}

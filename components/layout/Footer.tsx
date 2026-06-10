@@ -20,7 +20,7 @@ export function Footer() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-500/10 border border-brand-500/20">
               <Cpu className="h-4 w-4 text-[var(--brand)]" />
             </div>
-            <span>alex.mercer</span>
+            <span>yashpal.singh</span>
           </div>
 
           {/* Nav links */}
