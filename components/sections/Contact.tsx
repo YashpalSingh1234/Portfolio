@@ -24,7 +24,7 @@ export function Contact() {
         <SectionHeading
           eyebrow="Get in Touch"
           title="Let's Work Together"
-          subtitle="Open to AI Engineer, ML Engineer, and Applied AI roles. Let's talk."
+          subtitle="Open to AI Engineer / ML Engineer opportunities. Let's talk."
         />
 
         <div className="grid lg:grid-cols-5 gap-8">
@@ -36,8 +36,8 @@ export function Contact() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-2 flex flex-col gap-6"
           >
-            {/* Availability card */}
-            <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-5">
+            {/* Availability card — explicit role targeting */}
+            <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/8 p-5 shadow-[0_0_28px_rgba(16,185,129,0.1)]">
               <div className="flex items-center gap-3 mb-3">
                 <span className="relative flex h-3 w-3">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
@@ -45,8 +45,11 @@ export function Contact() {
                 </span>
                 <span className="text-sm font-semibold text-emerald-400">Available Now</span>
               </div>
-              <p className="text-sm text-[var(--text-secondary)]">
-                Actively looking for AI/ML Engineering roles. Best response time: &lt;24h.
+              <p className="text-sm font-bold text-[var(--text-primary)] mb-2">
+                Open to AI Engineer / ML Engineer opportunities
+              </p>
+              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                Actively looking for AI/ML Engineering roles. Response time: &lt;24h.
               </p>
             </div>
 
@@ -181,19 +184,16 @@ export function Contact() {
 
               <button
                 type="submit"
-                className={`flex items-center justify-center gap-2 h-11 rounded-xl font-medium text-sm transition-all duration-200 ${submitted
+                className={`flex items-center justify-center gap-2 h-11 rounded-xl font-medium text-sm transition-all duration-200 ${
+                  submitted
                     ? 'bg-emerald-500 text-white'
                     : 'bg-brand-500 text-white hover:bg-brand-600 shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_30px_rgba(99,102,241,0.5)]'
-                  }`}
+                }`}
               >
                 {submitted ? (
-                  <>
-                    <Check className="h-4 w-4" /> Message Sent!
-                  </>
+                  <><Check className="h-4 w-4" /> Message Sent!</>
                 ) : (
-                  <>
-                    <Send className="h-4 w-4" /> Send Message
-                  </>
+                  <><Send className="h-4 w-4" /> Send Message</>
                 )}
               </button>
             </form>

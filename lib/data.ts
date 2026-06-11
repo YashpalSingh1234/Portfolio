@@ -2,16 +2,16 @@ import type { Experience, SkillGroup, Certification, BlogPost } from '@/types'
 
 export const PERSONAL = {
   name: 'Yashpal Singh',
-  title: 'AI Engineer',
-  tagline: 'I build AI systems that ship.',
+  title: 'AI Engineer · Full Stack Developer',
+  tagline: 'Building production AI products and intelligent automation systems.',
   shortBio:
-    'AI Engineer with 2 years of R&D experience designing production-grade ML pipelines, LLM applications, and intelligent systems that solve real business problems—not just benchmark papers.',
+    'Focused on LLMs, ML Systems, and scalable web applications. 2 years of R&D experience shipping production-grade AI pipelines and intelligent automation — not just benchmark papers.',
   email: 'rk7129357@email.com',
   github: 'https://github.com/YashpalSingh1234',
   linkedin: 'https://linkedin.com/in/yashpal-singh-65810b241',
   location: 'Ahmedabad',
   resumeUrl: '/resume.pdf',
-  availability: 'Open to opportunities',
+  availability: 'Open to AI Engineer / ML Engineer opportunities',
 }
 
 export const EXPERIENCES: Experience[] = [
@@ -29,8 +29,14 @@ export const EXPERIENCES: Experience[] = [
       'Built a production RAG system with hybrid retrieval (FAISS + BM25), re-ranking with a cross-encoder, and structured output enforcement via constrained decoding. Deployed on FastAPI + Celery with Redis queue.',
     outcome:
       'Reduced manual document review by 74%, achieving 96.2% extraction accuracy. System processes 4,200+ pages/hour. Cost per document dropped 83% vs previous SaaS solution.',
+    achievements: [
+      'Built a production RAG pipeline with hybrid FAISS + BM25 retrieval and cross-encoder re-ranking, achieving 96.2% document extraction accuracy.',
+      'Enforced structured outputs via constrained decoding — zero hallucination tolerance for compliance-critical workflows.',
+      'Deployed on FastAPI + Celery + Redis; system processes 4,200+ pages/hour with async queue management.',
+      'Cut cost per document by 83% compared to the prior SaaS solution through in-house pipeline architecture.',
+    ],
     tech: ['Python', 'LangChain', 'FastAPI', 'FAISS', 'Redis', 'Docker', 'GPT-4', 'Llama-3', 'PostgreSQL'],
-    highlight: '96.2% extraction accuracy at 4,200 pages/hr',
+    highlight: '96.2% extraction accuracy · 83% cost reduction',
   },
   {
     id: 'exp-1',
@@ -41,11 +47,17 @@ export const EXPERIENCES: Experience[] = [
     problem:
       'The team had no standardised ML infrastructure. Models trained locally had no reproducibility guarantees, and deployments were ad hoc shell scripts.',
     research:
-      'Audited existing model training workflows. Evaluated MLflow vs Weights & Biases for experiment tracking, and Seldon vs FastAPI + Docker for serving. Reviewed best practices from Chip Huyen\'s ML Systems Design.',
+      'Audited existing model training workflows. Evaluated MLflow vs Weights & Biases for experiment tracking, and Seldon vs FastAPI + Docker for serving.',
     solution:
       'Designed and implemented an end-to-end MLOps platform: automated training pipelines with DVC, experiment tracking with MLflow, model registry, FastAPI serving with auto-scaling on AWS ECS, and Grafana monitoring dashboards.',
     outcome:
       'Reduced model deployment time from 3 days to 45 minutes. Enabled full experiment reproducibility. Team shipped 3x more model iterations per sprint.',
+    achievements: [
+      'Designed and shipped an end-to-end MLOps platform: DVC pipelines, MLflow registry, FastAPI serving, and Grafana dashboards.',
+      'Reduced model deployment time from 3 days to 45 minutes through automated CI/CD on AWS ECS.',
+      'Enabled full experiment reproducibility — every training run versioned with data, code, and hyperparameters.',
+      'Team shipped 3× more model iterations per sprint after platform adoption.',
+    ],
     tech: ['Python', 'MLflow', 'DVC', 'FastAPI', 'Docker', 'AWS ECS', 'Grafana', 'PostgreSQL', 'GitHub Actions'],
     highlight: 'Deployment time: 3 days → 45 minutes',
   },
@@ -62,13 +74,31 @@ export const EXPERIENCES: Experience[] = [
     solution:
       'Fine-tuned RoBERTa on a combined dataset of 80K+ articles with data augmentation. Added LIME-based explainability layer. Deployed as a REST API consumed by the editorial dashboard.',
     outcome:
-      'Achieved 94.7% F1 on held-out test set, outperforming all prior internal baselines. Integrated into production editorial workflow serving 50K+ articles/day.',
+      'Achieved 94.7% F1 on held-out test set, outperforming all prior internal baselines. Integrated into production editorial workflow.',
+    achievements: [
+      'Fine-tuned RoBERTa on 80K+ articles with data augmentation; achieved 94.7% F1, outperforming all prior internal baselines.',
+      'Added LIME-based explainability layer so editors could audit model decisions on flagged articles.',
+      'Deployed as a FastAPI REST service integrated into the live editorial review dashboard.',
+      'Outperformed GPT-4 zero-shot baseline by 8.3 percentage points on the held-out test set.',
+    ],
     tech: ['Python', 'PyTorch', 'HuggingFace', 'RoBERTa', 'LIME', 'FastAPI', 'Docker'],
     highlight: '94.7% F1 — outperformed all prior baselines',
   },
 ]
 
+// Skill groups ordered for maximum recruiter impact:
+// Core language → backend → ML fundamentals → AI/LLM → infrastructure
 export const SKILL_GROUPS: SkillGroup[] = [
+  {
+    category: 'Core & Backend',
+    icon: '⚡',
+    skills: [
+      { name: 'Python', level: 97, category: 'Core & Backend' },
+      { name: 'FastAPI', level: 92, category: 'Core & Backend' },
+      { name: 'SQL / PostgreSQL', level: 82, category: 'Core & Backend' },
+      { name: 'REST APIs', level: 88, category: 'Core & Backend' },
+    ],
+  },
   {
     category: 'Machine Learning',
     icon: '🤖',
@@ -80,23 +110,23 @@ export const SKILL_GROUPS: SkillGroup[] = [
     ],
   },
   {
+    category: 'AI Systems',
+    icon: '✨',
+    skills: [
+      { name: 'LangChain / LlamaIndex', level: 92, category: 'AI Systems' },
+      { name: 'OpenAI API', level: 95, category: 'AI Systems' },
+      { name: 'Prompt Engineering', level: 90, category: 'AI Systems' },
+      { name: 'Fine-tuning (LoRA / PEFT)', level: 80, category: 'AI Systems' },
+    ],
+  },
+  {
     category: 'Deep Learning',
     icon: '🧠',
     skills: [
       { name: 'PyTorch', level: 90, category: 'Deep Learning' },
-      { name: 'TensorFlow / Keras', level: 82, category: 'Deep Learning' },
       { name: 'HuggingFace Transformers', level: 93, category: 'Deep Learning' },
+      { name: 'TensorFlow / Keras', level: 82, category: 'Deep Learning' },
       { name: 'ONNX / Model Optimization', level: 78, category: 'Deep Learning' },
-    ],
-  },
-  {
-    category: 'LLM & GenAI',
-    icon: '✨',
-    skills: [
-      { name: 'LangChain / LlamaIndex', level: 92, category: 'LLM & GenAI' },
-      { name: 'OpenAI API', level: 95, category: 'LLM & GenAI' },
-      { name: 'Prompt Engineering', level: 90, category: 'LLM & GenAI' },
-      { name: 'Fine-tuning (LoRA / PEFT)', level: 80, category: 'LLM & GenAI' },
     ],
   },
   {
@@ -110,23 +140,13 @@ export const SKILL_GROUPS: SkillGroup[] = [
     ],
   },
   {
-    category: 'Backend & APIs',
-    icon: '⚡',
-    skills: [
-      { name: 'FastAPI', level: 92, category: 'Backend & APIs' },
-      { name: 'Python', level: 97, category: 'Backend & APIs' },
-      { name: 'PostgreSQL / Redis', level: 82, category: 'Backend & APIs' },
-      { name: 'REST / GraphQL', level: 80, category: 'Backend & APIs' },
-    ],
-  },
-  {
-    category: 'MLOps & Deployment',
+    category: 'MLOps & Infra',
     icon: '🚀',
     skills: [
-      { name: 'Docker / Kubernetes', level: 85, category: 'MLOps & Deployment' },
-      { name: 'MLflow / DVC', level: 88, category: 'MLOps & Deployment' },
-      { name: 'AWS (ECS, S3, Lambda)', level: 80, category: 'MLOps & Deployment' },
-      { name: 'GitHub Actions / CI/CD', level: 87, category: 'MLOps & Deployment' },
+      { name: 'Docker', level: 85, category: 'MLOps & Infra' },
+      { name: 'MLflow / DVC', level: 88, category: 'MLOps & Infra' },
+      { name: 'AWS (ECS, S3, Lambda)', level: 80, category: 'MLOps & Infra' },
+      { name: 'GitHub Actions / CI/CD', level: 87, category: 'MLOps & Infra' },
     ],
   },
 ]

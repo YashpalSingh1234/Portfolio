@@ -41,6 +41,7 @@ export interface Experience {
   research: string
   solution: string
   outcome: string
+  achievements: string[]
   tech: string[]
   highlight?: string
 }

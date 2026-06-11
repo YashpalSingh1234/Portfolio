@@ -23,6 +23,25 @@ const CVKING = {
     'Most job seekers submit resumes that fail automated Applicant Tracking System (ATS) filters before a human ever reads them. Existing tools are either too expensive, too generic, or lack actionable AI feedback.',
   solution:
     'CVKing combines an AI Resume Optimizer, a real-time ATS score checker, and a structured CV builder into a single freemium SaaS product priced for the Indian job market.',
+  // Top 3 shown on the card — chosen for maximum recruiter signal
+  cardFeatures: [
+    {
+      icon: '🤖',
+      label: 'AI Resume Optimizer',
+      detail: 'Rewrites bullets with stronger action verbs and impact framing.',
+    },
+    {
+      icon: '✅',
+      label: 'ATS Score & Formatter',
+      detail: 'Automatically formats and scores resumes to pass ATS filters.',
+    },
+    {
+      icon: '👁️',
+      label: 'Live Preview Editor',
+      detail: 'Resume updates render in real-time as users type — no reloads.',
+    },
+  ] as const,
+  // Full feature set shown in modal
   features: [
     {
       icon: '🤖',
@@ -36,8 +55,8 @@ const CVKING = {
     },
     {
       icon: '✅',
-      label: '100% ATS Optimisation',
-      detail: 'Automatically formats resumes to pass Applicant Tracking System filters.',
+      label: 'ATS Score & Formatter',
+      detail: 'Automatically formats resumes to pass Applicant Tracking System filters with 100% compatibility.',
     },
     {
       icon: '👁️',
@@ -65,24 +84,22 @@ const CVKING = {
       detail: 'Produces role-specific interview question sets to help candidates prepare (paid tiers).',
     },
   ] as const,
-  // Tech stack — all entries verified from source code signals and privacy policy.
-  // No stack item has been guessed without evidence.
+  // All entries verified from live site source and privacy policy.
   techStack: [
-    { label: 'Next.js', note: 'verified — SSR routing, metadata API' },
-    { label: 'JWT Auth', note: 'verified — privacy policy §2' },
-    { label: 'bcrypt', note: 'verified — privacy policy §8' },
-    { label: 'Razorpay', note: 'verified — pricing page + privacy policy §5' },
-    { label: 'Google OAuth', note: 'verified — login page' },
-    { label: 'HTTPS / TLS 1.2+', note: 'verified — privacy policy §8' },
-    { label: 'AI (LLM)', note: 'verified — features present; provider not disclosed' },
-    { label: 'PDF Export', note: 'verified — pricing table' },
+    { label: 'Next.js',        note: 'verified — SSR routing, metadata API' },
+    { label: 'JWT Auth',       note: 'verified — privacy policy §2' },
+    { label: 'bcrypt',         note: 'verified — privacy policy §8' },
+    { label: 'Razorpay',       note: 'verified — pricing page + privacy policy §5' },
+    { label: 'Google OAuth',   note: 'verified — login page' },
+    { label: 'HTTPS / TLS',    note: 'verified — privacy policy §8' },
+    { label: 'AI (LLM)',       note: 'verified — features present; provider not disclosed' },
+    { label: 'PDF Export',     note: 'verified — pricing table' },
   ] as const,
-  // Architecture layers — inferred from confirmed product behaviour.
   architecture: [
-    { icon: <Cpu className="h-4 w-4" />, label: 'AI Layer', detail: 'Resume optimiser, cover letter + roadmap generators' },
-    { icon: <Layers className="h-4 w-4" />, label: 'Builder', detail: 'Live-preview editor + ATS formatter + PDF export' },
-    { icon: <Shield className="h-4 w-4" />, label: 'Auth & Sessions', detail: 'JWT + bcrypt + Google OAuth + CSRF protection' },
-    { icon: <CreditCard className="h-4 w-4" />, label: 'Payments', detail: 'Razorpay — 5 tiers from free to ₹999/yr' },
+    { icon: <Cpu className="h-4 w-4" />,        label: 'AI Layer',        detail: 'Resume optimiser, cover letter + roadmap generators' },
+    { icon: <Layers className="h-4 w-4" />,     label: 'Builder',         detail: 'Live-preview editor + ATS formatter + PDF export' },
+    { icon: <Shield className="h-4 w-4" />,     label: 'Auth & Sessions', detail: 'JWT + bcrypt + Google OAuth + CSRF protection' },
+    { icon: <CreditCard className="h-4 w-4" />, label: 'Payments',        detail: 'Razorpay — 5 tiers from free to ₹999/yr' },
   ],
   pricing: {
     free: 'Free — 2 templates, basic ATS check, 3 PDF exports/mo',
@@ -93,7 +110,7 @@ const CVKING = {
   year: '2026',
 }
 
-/* ── Modal ── */
+/* ── Detail Modal ── */
 function CVKingModal({ onClose }: { onClose: () => void }) {
   return (
     <motion.div
@@ -113,12 +130,15 @@ function CVKingModal({ onClose }: { onClose: () => void }) {
         onClick={(e) => e.stopPropagation()}
         className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl border border-[var(--border-strong)] bg-[var(--bg-primary)] shadow-2xl"
       >
-        {/* Header */}
+        {/* Sticky header */}
         <div className="sticky top-0 flex items-start justify-between gap-4 p-6 border-b border-[var(--border)] bg-[var(--bg-primary)] rounded-t-2xl z-10">
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="text-2xl">👑</span>
               <h3 className="text-xl font-bold text-[var(--text-primary)]">{CVKING.title}</h3>
+              <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-mono font-semibold text-emerald-400">
+                Live
+              </span>
             </div>
             <p className="text-sm text-[var(--text-secondary)]">{CVKING.tagline}</p>
           </div>
@@ -146,7 +166,7 @@ function CVKingModal({ onClose }: { onClose: () => void }) {
 
           {/* All Features */}
           <div>
-            <p className="text-xs font-mono text-[var(--text-tertiary)] uppercase tracking-wider mb-3">Features</p>
+            <p className="text-xs font-mono text-[var(--text-tertiary)] uppercase tracking-wider mb-3">All Features</p>
             <div className="grid sm:grid-cols-2 gap-3">
               {CVKING.features.map((f) => (
                 <div key={f.label} className="flex gap-3 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-4">
@@ -162,7 +182,7 @@ function CVKingModal({ onClose }: { onClose: () => void }) {
 
           {/* Architecture */}
           <div>
-            <p className="text-xs font-mono text-[var(--text-tertiary)] uppercase tracking-wider mb-3">Architecture Highlights</p>
+            <p className="text-xs font-mono text-[var(--text-tertiary)] uppercase tracking-wider mb-3">Architecture</p>
             <div className="grid sm:grid-cols-2 gap-3">
               {CVKING.architecture.map((a) => (
                 <div key={a.label} className="flex items-start gap-3 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-4">
@@ -193,24 +213,24 @@ function CVKingModal({ onClose }: { onClose: () => void }) {
               ))}
             </div>
             <p className="mt-2 text-xs text-[var(--text-tertiary)]">
-              All stack items verified from live site source and privacy policy. Hover a badge to see the evidence source.
+              All items verified from live site and privacy policy. Hover for source.
             </p>
           </div>
 
-          {/* Pricing snapshot */}
+          {/* Pricing */}
           <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-4">
             <p className="text-xs font-mono text-[var(--text-tertiary)] uppercase tracking-wider mb-2">Pricing Model</p>
             <p className="text-sm text-[var(--text-secondary)]">{CVKING.pricing.free}</p>
             <p className="text-sm text-[var(--text-secondary)] mt-1">{CVKING.pricing.paid}</p>
           </div>
 
-          {/* CTAs */}
+          {/* Modal CTA */}
           <div className="flex gap-3 pt-2 border-t border-[var(--border)]">
             <a
               href={CVKING.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 h-10 px-5 rounded-xl bg-brand-500 text-white text-sm font-medium hover:bg-brand-600 transition-colors"
+              className="inline-flex items-center gap-2 h-10 px-5 rounded-xl bg-brand-500 text-white text-sm font-medium hover:bg-brand-600 transition-colors shadow-[0_0_20px_rgba(99,102,241,0.25)]"
             >
               <ExternalLink className="h-4 w-4" /> Live Demo
             </a>
@@ -221,7 +241,7 @@ function CVKingModal({ onClose }: { onClose: () => void }) {
   )
 }
 
-/* ── Card ── */
+/* ── Featured Card ── */
 function CVKingCard() {
   const [open, setOpen] = useState(false)
 
@@ -232,18 +252,18 @@ function CVKingCard() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="group relative flex flex-col rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] overflow-hidden hover:border-[var(--border-strong)] transition-all duration-300 hover:shadow-[0_8px_40px_rgba(99,102,241,0.12)]"
+        className="group relative flex flex-col rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] overflow-hidden hover:border-[var(--brand)]/40 transition-all duration-300 hover:shadow-[0_20px_60px_rgba(99,102,241,0.2)] hover:-translate-y-1.5"
       >
-        {/* Header gradient band */}
-        <div className="relative h-44 bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-pink-500/10 flex items-center justify-center overflow-hidden">
+        {/* ── Hero band — tall gradient header ── */}
+        <div className="relative h-52 bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-pink-500/10 flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 grid-bg opacity-20" />
 
-          {/* Floating feature pills */}
-          <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
+          {/* Feature pills — top-left */}
+          <div className="absolute top-4 left-4 flex flex-col gap-1.5 z-10">
             {['ATS Optimized', 'AI-Powered', 'Freemium SaaS'].map((pill) => (
               <span
                 key={pill}
-                className="inline-block rounded-md border border-[var(--border)] bg-[var(--bg-primary)]/80 backdrop-blur-sm px-2 py-0.5 text-[10px] font-mono font-semibold text-[var(--brand)]"
+                className="inline-block rounded-md border border-[var(--border)] bg-[var(--bg-primary)]/80 backdrop-blur-sm px-2.5 py-0.5 text-[10px] font-mono font-semibold text-[var(--brand)]"
               >
                 {pill}
               </span>
@@ -251,70 +271,76 @@ function CVKingCard() {
           </div>
 
           {/* Central icon */}
-          <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-2xl border border-[var(--border-strong)] bg-[var(--bg-primary)]/60 backdrop-blur-sm shadow-lg">
-            <span className="text-4xl select-none">👑</span>
+          <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-2xl border border-[var(--border-strong)] bg-[var(--bg-primary)]/60 backdrop-blur-sm shadow-xl group-hover:scale-105 group-hover:shadow-2xl transition-transform duration-300">
+            <span className="text-5xl select-none">👑</span>
           </div>
 
-          {/* Year badge */}
-          <div className="absolute bottom-3 right-3 rounded-lg border border-[var(--border)] bg-[var(--bg-primary)]/80 backdrop-blur-sm px-2 py-1 z-10">
-            <span className="text-xs font-mono text-[var(--text-tertiary)]">{CVKING.year}</span>
+          {/* Live + year — top-right */}
+          <div className="absolute top-4 right-4 flex flex-col items-end gap-1.5 z-10">
+            <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-mono font-semibold text-emerald-400">
+              Live
+            </span>
+            <span className="text-[10px] font-mono text-[var(--text-tertiary)] bg-[var(--bg-primary)]/60 backdrop-blur-sm rounded-md border border-[var(--border)] px-2 py-0.5">
+              {CVKING.year}
+            </span>
           </div>
         </div>
 
-        {/* Body */}
-        <div className="flex flex-col flex-1 p-5">
-          {/* Title */}
-          <div className="flex items-start justify-between gap-2">
-            <h3 className="text-base font-semibold text-[var(--text-primary)] leading-snug group-hover:text-[var(--brand)] transition-colors">
+        {/* ── Card body ── */}
+        <div className="flex flex-col flex-1 p-6">
+          {/* Title + tagline */}
+          <div className="mb-3">
+            <h3 className="text-xl font-bold text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors">
               {CVKING.title}
             </h3>
-            <span className="shrink-0 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-mono font-semibold text-emerald-400">
-              Live
-            </span>
+            <p className="mt-0.5 text-xs font-mono text-[var(--text-tertiary)]">{CVKING.tagline}</p>
           </div>
 
           {/* Description */}
-          <p className="mt-2 text-sm text-[var(--text-secondary)] leading-relaxed flex-1">
+          <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
             {CVKING.description}
           </p>
 
-          {/* Key feature list — top 4 */}
-          <ul className="mt-4 space-y-1.5">
-            {CVKING.features.slice(0, 4).map((f) => (
-              <li key={f.label} className="flex items-start gap-2 text-xs text-[var(--text-secondary)]">
-                <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--brand)]" />
-                <span>
-                  <span className="font-medium text-[var(--text-primary)]">{f.label}</span>
-                  {' — '}
-                  {f.detail}
-                </span>
-              </li>
+          {/* Top 3 features — clean and scannable */}
+          <div className="mt-5 grid sm:grid-cols-3 gap-3">
+            {CVKING.cardFeatures.map((f) => (
+              <div
+                key={f.label}
+                className="rounded-xl border border-[var(--border)] bg-[var(--bg-primary)] p-3 flex flex-col gap-1.5"
+              >
+                <span className="text-lg">{f.icon}</span>
+                <p className="text-xs font-semibold text-[var(--text-primary)] leading-tight">{f.label}</p>
+                <p className="text-[11px] text-[var(--text-tertiary)] leading-snug">{f.detail}</p>
+              </div>
             ))}
-          </ul>
+          </div>
 
           {/* Tech tags */}
-          <div className="mt-4 flex flex-wrap gap-1.5">
+          <div className="mt-5 flex flex-wrap gap-1.5">
             {CVKING.techStack.slice(0, 5).map((t) => (
               <Badge key={t.label} variant="default">{t.label}</Badge>
             ))}
           </div>
 
-          {/* Footer */}
-          <div className="mt-5 flex items-center justify-between border-t border-[var(--border)] pt-4">
+          {/* ── CTA hierarchy ── */}
+          <div className="mt-6 flex flex-col sm:flex-row gap-3 border-t border-[var(--border)] pt-5">
+            {/* Primary — full emphasis */}
             <a
               href={CVKING.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 h-8 px-4 rounded-lg bg-brand-500 text-white text-xs font-medium hover:bg-brand-600 transition-colors"
+              className="flex-1 inline-flex items-center justify-center gap-2 h-10 rounded-xl bg-brand-500 text-white text-sm font-semibold hover:bg-brand-600 transition-all shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_28px_rgba(99,102,241,0.5)] active:scale-[0.98]"
             >
-              <ExternalLink className="h-3 w-3" />
+              <ExternalLink className="h-4 w-4" />
               Live Demo
             </a>
+            {/* Secondary — outline */}
             <button
               onClick={() => setOpen(true)}
-              className="inline-flex items-center gap-1 text-xs font-medium text-[var(--brand)] hover:text-brand-300 transition-colors"
+              className="flex-1 inline-flex items-center justify-center gap-1.5 h-10 rounded-xl border border-[var(--border-strong)] text-sm font-medium text-[var(--text-primary)] hover:border-[var(--brand)] hover:text-[var(--brand)] transition-all active:scale-[0.98]"
             >
-              View details <ChevronRight className="h-3.5 w-3.5" />
+              View Details
+              <ChevronRight className="h-4 w-4" />
             </button>
           </div>
         </div>
@@ -338,8 +364,8 @@ export function Projects() {
           subtitle="Production systems built end-to-end — from dataset curation to deployed APIs."
         />
 
-        {/* Single featured project — centred, capped at readable width */}
-        <div className="mx-auto max-w-2xl">
+        {/* Single featured card — capped at 3xl for visual prominence without over-stretching */}
+        <div className="mx-auto max-w-3xl">
           <CVKingCard />
         </div>
       </div>
