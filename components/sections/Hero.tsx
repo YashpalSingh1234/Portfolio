@@ -6,15 +6,15 @@ import { PERSONAL } from '@/lib/data'
 
 // Credible stats only — no invented percentages or user counts.
 const STATS = [
-  { value: '1',   label: 'Production Project' },
+  { value: '1', label: 'Production Project' },
   { value: '15+', label: 'Technologies' },
-  { value: '8',   label: 'AI Features Built' },
-  { value: '2+',  label: 'Years R&D' },
+  { value: '8', label: 'AI Features Built' },
+  { value: '2+', label: 'Years R&D' },
 ]
 
 const TECH_CHIPS = [
   'Python', 'FastAPI', 'LangChain', 'PyTorch',
-  'RAG', 'LLMs', 'Next.js', 'Docker',
+  'RAG', 'LLMs',
 ]
 
 export function Hero() {
