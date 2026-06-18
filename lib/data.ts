@@ -8,7 +8,7 @@ export const PERSONAL = {
     'Focused on LLMs, ML Systems, and scalable web applications. 2 years of R&D experience shipping production-grade AI pipelines and intelligent automation — not just benchmark papers.',
   email: 'rk7129357@email.com',
   github: 'https://github.com/YashpalSingh1234',
-  linkedin: 'https://linkedin.com/in/yashpal-singh-65810b241',
+  linkedin: 'https://www.linkedin.com/in/yashpal-singh-65810b241/',
   location: 'Ahmedabad',
   resumeUrl: '/resume.pdf',
   availability: 'Open to AI Engineer / ML Engineer opportunities',

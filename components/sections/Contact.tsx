@@ -97,7 +97,7 @@ export function Contact() {
                 <div>
                   <p className="text-xs text-[var(--text-tertiary)]">LinkedIn</p>
                   <p className="text-sm font-medium text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors">
-                    linkedin.com/in/yashpal-singh-65810b241
+                    www.linkedin.com/in/yashpal-singh-65810b241/
                   </p>
                 </div>
               </a>
@@ -184,11 +184,10 @@ export function Contact() {
 
               <button
                 type="submit"
-                className={`flex items-center justify-center gap-2 h-11 rounded-xl font-medium text-sm transition-all duration-200 ${
-                  submitted
+                className={`flex items-center justify-center gap-2 h-11 rounded-xl font-medium text-sm transition-all duration-200 ${submitted
                     ? 'bg-emerald-500 text-white'
                     : 'bg-brand-500 text-white hover:bg-brand-600 shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_30px_rgba(99,102,241,0.5)]'
-                }`}
+                  }`}
               >
                 {submitted ? (
                   <><Check className="h-4 w-4" /> Message Sent!</>
