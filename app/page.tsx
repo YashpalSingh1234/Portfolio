@@ -5,6 +5,7 @@ import { Skills } from '@/components/sections/Skills'
 import { Architecture } from '@/components/sections/Architecture'
 import { Contact } from '@/components/sections/Contact'
 
+// hello
 export default function Home() {
   return (
     <>
