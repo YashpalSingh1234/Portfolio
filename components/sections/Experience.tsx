@@ -16,7 +16,7 @@ export function Experience() {
         <SectionHeading
           eyebrow="Career"
           title="Experience"
-          subtitle="2 years of shipping AI systems in R&D — from research to production."
+          subtitle="From real-time 3D simulation to applied AI — model integration, RAG systems, and computer vision."
         />
 
         <div className="relative">
@@ -93,9 +93,9 @@ export function Experience() {
                           transition={{ duration: 0.3 }}
                           className="border-t border-[var(--border)] px-4 pb-4"
                         >
-                          {/* Achievement bullets — max 4, recruiter-scannable */}
+                          {/* Achievement bullets — capped at 3, recruiter-scannable */}
                           <ul className="pt-4 space-y-2.5">
-                            {exp.achievements.slice(0, 4).map((point, i) => (
+                            {exp.achievements.slice(0, 3).map((point, i) => (
                               <li key={i} className="flex items-start gap-3">
                                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--brand)]" />
                                 <span className="text-sm text-[var(--text-secondary)] leading-relaxed">

@@ -37,25 +37,23 @@ export interface Experience {
   company: string
   period: string
   type: string
-  problem: string
-  research: string
-  solution: string
-  outcome: string
+  // Narrative fields are optional — Experience.tsx only renders
+  // `achievements` + `tech`. Fill these in only with content you can
+  // defend in an interview; leave them out otherwise.
+  problem?: string
+  research?: string
+  solution?: string
+  outcome?: string
   achievements: string[]
   tech: string[]
   highlight?: string
 }
 
-export interface Skill {
-  name: string
-  level: number
-  category: string
-}
-
 export interface SkillGroup {
   category: string
   icon: string
-  skills: Skill[]
+  // Flat tag list — no proficiency levels/percentages by design.
+  skills: string[]
 }
 
 export interface Certification {

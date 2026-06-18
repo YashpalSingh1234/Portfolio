@@ -2,10 +2,10 @@ import type { Experience, SkillGroup, Certification, BlogPost } from '@/types'
 
 export const PERSONAL = {
   name: 'Yashpal Singh',
-  title: 'AI Engineer · Full Stack Developer',
+  title: 'AI Engineer · Building Intelligent Applications',
   tagline: 'Building production AI products and intelligent automation systems.',
   shortBio:
-    'Focused on LLMs, ML Systems, and scalable web applications. 2 years of R&D experience shipping production-grade AI pipelines and intelligent automation — not just benchmark papers.',
+    'Computer Science graduate with experience in Unity development and a transition into AI/ML. Built projects across RAG, computer vision, and model experimentation using modern AI tooling.',
   email: 'rk7129357@email.com',
   github: 'https://github.com/YashpalSingh1234',
   linkedin: 'https://www.linkedin.com/in/yashpal-singh-65810b241/',
@@ -16,138 +16,64 @@ export const PERSONAL = {
 
 export const EXPERIENCES: Experience[] = [
   {
-    id: 'exp-2',
-    role: 'AI/ML Engineer — R&D',
-    company: 'Neural Systems Lab',
-    period: 'Jan 2024 – Present',
+    id: 'exp-aiml',
+    role: 'AI/ML Developer (Projects & Research)',
+    company: 'Phibonacci Learning',
+    period: 'Aug 2024 – Present',
     type: 'Full-time',
-    problem:
-      'Enterprise clients needed document intelligence at scale—thousands of PDFs per hour, with zero hallucination tolerance for compliance-critical extraction.',
-    research:
-      'Evaluated retrieval-augmented generation with dense passage retrieval vs BM25 hybrid search. Benchmarked GPT-4, Claude 3, and fine-tuned Llama-3 on domain-specific extraction tasks. Analysed latency/cost tradeoffs for real-time vs async pipelines.',
-    solution:
-      'Built a production RAG system with hybrid retrieval (FAISS + BM25), re-ranking with a cross-encoder, and structured output enforcement via constrained decoding. Deployed on FastAPI + Celery with Redis queue.',
-    outcome:
-      'Reduced manual document review by 74%, achieving 96.2% extraction accuracy. System processes 4,200+ pages/hour. Cost per document dropped 83% vs previous SaaS solution.',
     achievements: [
-      'Built a production RAG pipeline with hybrid FAISS + BM25 retrieval and cross-encoder re-ranking, achieving 96.2% document extraction accuracy.',
-      'Enforced structured outputs via constrained decoding — zero hallucination tolerance for compliance-critical workflows.',
-      'Deployed on FastAPI + Celery + Redis; system processes 4,200+ pages/hour with async queue management.',
-      'Cut cost per document by 83% compared to the prior SaaS solution through in-house pipeline architecture.',
+      'Designed and built Retrieval-Augmented Generation (RAG) systems, combining LLM workflows with vector search to ground responses in retrieved context.',
+      'Built and experimented with model training, fine-tuning, and inference workflows using PyTorch and Hugging Face.',
+      'Built computer vision solutions using OpenCV and YOLO-based models for object detection and image-processing tasks.',
     ],
-    tech: ['Python', 'LangChain', 'FastAPI', 'FAISS', 'Redis', 'Docker', 'GPT-4', 'Llama-3', 'PostgreSQL'],
-    highlight: '96.2% extraction accuracy · 83% cost reduction',
+    tech: ['Python', 'PyTorch', 'Hugging Face', 'LangChain', 'Vector Databases', 'OpenCV', 'YOLO'],
   },
   {
-    id: 'exp-1',
-    role: 'Junior ML Engineer — R&D',
-    company: 'Neural Systems Lab',
-    period: 'Jun 2023 – Dec 2023',
+    id: 'exp-unity',
+    role: 'Unity Developer (3D Simulation)',
+    company: 'Phibonacci Learning',
+    period: 'Aug 2022 – Jul 2024',
     type: 'Full-time',
-    problem:
-      'The team had no standardised ML infrastructure. Models trained locally had no reproducibility guarantees, and deployments were ad hoc shell scripts.',
-    research:
-      'Audited existing model training workflows. Evaluated MLflow vs Weights & Biases for experiment tracking, and Seldon vs FastAPI + Docker for serving.',
-    solution:
-      'Designed and implemented an end-to-end MLOps platform: automated training pipelines with DVC, experiment tracking with MLflow, model registry, FastAPI serving with auto-scaling on AWS ECS, and Grafana monitoring dashboards.',
-    outcome:
-      'Reduced model deployment time from 3 days to 45 minutes. Enabled full experiment reproducibility. Team shipped 3x more model iterations per sprint.',
     achievements: [
-      'Designed and shipped an end-to-end MLOps platform: DVC pipelines, MLflow registry, FastAPI serving, and Grafana dashboards.',
-      'Reduced model deployment time from 3 days to 45 minutes through automated CI/CD on AWS ECS.',
-      'Enabled full experiment reproducibility — every training run versioned with data, code, and hyperparameters.',
-      'Team shipped 3× more model iterations per sprint after platform adoption.',
+      'Built and maintained real-time 3D simulation applications in Unity using C#, covering simulation logic, scene behaviour, and performance-aware programming.',
+      'Strengthened core engineering fundamentals — debugging real-time systems, algorithmic problem-solving, and writing maintainable code — that carried directly into the move into AI/ML.',
     ],
-    tech: ['Python', 'MLflow', 'DVC', 'FastAPI', 'Docker', 'AWS ECS', 'Grafana', 'PostgreSQL', 'GitHub Actions'],
-    highlight: 'Deployment time: 3 days → 45 minutes',
-  },
-  {
-    id: 'exp-0',
-    role: 'ML Research Intern',
-    company: 'Neural Systems Lab',
-    period: 'Jan 2023 – May 2023',
-    type: 'Internship',
-    problem:
-      'News articles were being classified for misinformation manually, which was slow and inconsistent. The team needed an automated, explainable classifier.',
-    research:
-      'Reviewed BERT-based classification literature. Compared TF-IDF + classical ML vs fine-tuned transformers on the LIAR and FakeNewsNet datasets. Explored explainability via LIME and attention visualisation.',
-    solution:
-      'Fine-tuned RoBERTa on a combined dataset of 80K+ articles with data augmentation. Added LIME-based explainability layer. Deployed as a REST API consumed by the editorial dashboard.',
-    outcome:
-      'Achieved 94.7% F1 on held-out test set, outperforming all prior internal baselines. Integrated into production editorial workflow.',
-    achievements: [
-      'Fine-tuned RoBERTa on 80K+ articles with data augmentation; achieved 94.7% F1, outperforming all prior internal baselines.',
-      'Added LIME-based explainability layer so editors could audit model decisions on flagged articles.',
-      'Deployed as a FastAPI REST service integrated into the live editorial review dashboard.',
-      'Outperformed GPT-4 zero-shot baseline by 8.3 percentage points on the held-out test set.',
-    ],
-    tech: ['Python', 'PyTorch', 'HuggingFace', 'RoBERTa', 'LIME', 'FastAPI', 'Docker'],
-    highlight: '94.7% F1 — outperformed all prior baselines',
+    tech: ['Unity', 'C#'],
   },
 ]
 
-// Skill groups ordered for maximum recruiter impact:
-// Core language → backend → ML fundamentals → AI/LLM → infrastructure
+// Skill groups — exactly the categories on the resume, AI/ML-first.
+// Flat tags, no proficiency percentages.
 export const SKILL_GROUPS: SkillGroup[] = [
   {
-    category: 'Core & Backend',
-    icon: '⚡',
-    skills: [
-      { name: 'Python', level: 97, category: 'Core & Backend' },
-      { name: 'FastAPI', level: 92, category: 'Core & Backend' },
-      { name: 'SQL / PostgreSQL', level: 82, category: 'Core & Backend' },
-      { name: 'REST APIs', level: 88, category: 'Core & Backend' },
-    ],
-  },
-  {
-    category: 'Machine Learning',
+    category: 'AI / ML',
     icon: '🤖',
-    skills: [
-      { name: 'Scikit-learn', level: 95, category: 'Machine Learning' },
-      { name: 'XGBoost / LightGBM', level: 90, category: 'Machine Learning' },
-      { name: 'Feature Engineering', level: 92, category: 'Machine Learning' },
-      { name: 'Pandas / NumPy', level: 96, category: 'Machine Learning' },
-    ],
+    skills: ['Python', 'TensorFlow', 'PyTorch', 'Machine Learning', 'Deep Learning'],
   },
   {
-    category: 'AI Systems',
+    category: 'LLM & AI',
     icon: '✨',
-    skills: [
-      { name: 'LangChain / LlamaIndex', level: 92, category: 'AI Systems' },
-      { name: 'OpenAI API', level: 95, category: 'AI Systems' },
-      { name: 'Prompt Engineering', level: 90, category: 'AI Systems' },
-      { name: 'Fine-tuning (LoRA / PEFT)', level: 80, category: 'AI Systems' },
-    ],
+    skills: ['LangChain', 'RAG', 'Hugging Face', 'Fine-Tuning'],
   },
   {
-    category: 'Deep Learning',
-    icon: '🧠',
-    skills: [
-      { name: 'PyTorch', level: 90, category: 'Deep Learning' },
-      { name: 'HuggingFace Transformers', level: 93, category: 'Deep Learning' },
-      { name: 'TensorFlow / Keras', level: 82, category: 'Deep Learning' },
-      { name: 'ONNX / Model Optimization', level: 78, category: 'Deep Learning' },
-    ],
+    category: 'Computer Vision',
+    icon: '👁️',
+    skills: ['OpenCV', 'YOLO'],
   },
   {
-    category: 'RAG & Vector Search',
-    icon: '🔎',
-    skills: [
-      { name: 'FAISS / Pinecone', level: 90, category: 'RAG & Vector Search' },
-      { name: 'Hybrid Search (BM25)', level: 85, category: 'RAG & Vector Search' },
-      { name: 'Embedding Models', level: 88, category: 'RAG & Vector Search' },
-      { name: 'Reranking / RAG Eval', level: 82, category: 'RAG & Vector Search' },
-    ],
+    category: 'Data',
+    icon: '📊',
+    skills: ['Pandas', 'NumPy', 'SQL'],
   },
   {
-    category: 'MLOps & Infra',
-    icon: '🚀',
-    skills: [
-      { name: 'Docker', level: 85, category: 'MLOps & Infra' },
-      { name: 'MLflow / DVC', level: 88, category: 'MLOps & Infra' },
-      { name: 'AWS (ECS, S3, Lambda)', level: 80, category: 'MLOps & Infra' },
-      { name: 'GitHub Actions / CI/CD', level: 87, category: 'MLOps & Infra' },
-    ],
+    category: 'Development',
+    icon: '⚙️',
+    skills: ['FastAPI', 'Git', 'Linux'],
+  },
+  {
+    category: 'Frontend',
+    icon: '🖥️',
+    skills: ['Next.js', 'TypeScript', 'Tailwind CSS'],
   },
 ]
 
