@@ -2,7 +2,7 @@ import type { Experience, SkillGroup, Certification, BlogPost } from '@/types'
 
 export const PERSONAL = {
   name: 'Yashpal Singh',
-  title: 'AI Engineer · Building Intelligent Applications',
+  title: 'AI Engineer | Building Intelligent Applications',
   tagline: 'Building production AI products and intelligent automation systems.',
   shortBio:
     'Computer Science graduate with experience in Unity development and a transition into AI/ML. Built projects across RAG, computer vision, and model experimentation using modern AI tooling.',
@@ -69,11 +69,6 @@ export const SKILL_GROUPS: SkillGroup[] = [
     category: 'Development',
     icon: '⚙️',
     skills: ['FastAPI', 'Git', 'Linux'],
-  },
-  {
-    category: 'Frontend',
-    icon: '🖥️',
-    skills: ['Next.js', 'TypeScript', 'Tailwind CSS'],
   },
 ]
 
