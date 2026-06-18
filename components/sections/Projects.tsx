@@ -101,20 +101,20 @@ const CVKING = {
   ] as const,
   // All entries verified from live site source and privacy policy.
   techStack: [
-    { label: 'Next.js',        note: 'verified — SSR routing, metadata API' },
-    { label: 'JWT Auth',       note: 'verified — privacy policy §2' },
-    { label: 'bcrypt',         note: 'verified — privacy policy §8' },
-    { label: 'Razorpay',       note: 'verified — pricing page + privacy policy §5' },
-    { label: 'Google OAuth',   note: 'verified — login page' },
-    { label: 'HTTPS / TLS',    note: 'verified — privacy policy §8' },
-    { label: 'AI (LLM)',       note: 'verified — features present; provider not disclosed' },
-    { label: 'PDF Export',     note: 'verified — pricing table' },
+    { label: 'Next.js', note: 'verified — SSR routing, metadata API' },
+    { label: 'JWT Auth', note: 'verified — privacy policy §2' },
+    { label: 'bcrypt', note: 'verified — privacy policy §8' },
+    { label: 'Razorpay', note: 'verified — pricing page + privacy policy §5' },
+    { label: 'Google OAuth', note: 'verified — login page' },
+    { label: 'HTTPS / TLS', note: 'verified — privacy policy §8' },
+    { label: 'AI (LLM)', note: 'verified — features present; provider not disclosed' },
+    { label: 'PDF Export', note: 'verified — pricing table' },
   ] as const,
   architecture: [
-    { icon: <Cpu className="h-4 w-4" />,        label: 'AI Layer',        detail: 'Resume optimiser, cover letter + roadmap generators' },
-    { icon: <Layers className="h-4 w-4" />,     label: 'Builder',         detail: 'Live-preview editor + ATS formatter + PDF export' },
-    { icon: <Shield className="h-4 w-4" />,     label: 'Auth & Sessions', detail: 'JWT + bcrypt + Google OAuth + CSRF protection' },
-    { icon: <CreditCard className="h-4 w-4" />, label: 'Payments',        detail: 'Razorpay — 5 tiers from free to ₹999/yr' },
+    { icon: <Cpu className="h-4 w-4" />, label: 'AI Layer', detail: 'Resume optimiser, cover letter + roadmap generators' },
+    { icon: <Layers className="h-4 w-4" />, label: 'Builder', detail: 'Live-preview editor + ATS formatter + PDF export' },
+    { icon: <Shield className="h-4 w-4" />, label: 'Auth & Sessions', detail: 'JWT + bcrypt + Google OAuth + CSRF protection' },
+    { icon: <CreditCard className="h-4 w-4" />, label: 'Payments', detail: 'Razorpay — 5 tiers from free to ₹999/yr' },
   ],
   pricing: {
     free: 'Free — 2 templates, basic ATS check, 3 PDF exports/mo',
@@ -496,7 +496,7 @@ const BILLO = {
     "Tracking LangChain's package migration early kept the pipeline aligned with the current ecosystem instead of pinned to a deprecated API surface.",
     'Biggest lesson: most RAG reference code is written for a single demo run, not for being restarted, redeployed, or extended with new documents — designing for that constraint from the start avoided a rewrite later.',
   ] as const,
-  github: 'https://github.com/YashpalSingh1234/billo-ai', // TODO: confirm/replace with the real repo URL
+  github: 'https://github.com/YashpalSingh1234/b-illo_Ai', // TODO: confirm/replace with the real repo URL
 }
 
 /* ── Detail Modal ── */
