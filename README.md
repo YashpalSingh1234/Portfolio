@@ -3,6 +3,7 @@
 World-class, production-grade portfolio website for an AI/ML Engineer.
 
 ## Stack
+
 - **Next.js 14** (App Router)
 - **TypeScript**
 - **Tailwind CSS**
@@ -26,6 +27,7 @@ npm start
 ## Customise
 
 All content is in **`lib/data.ts`**. Update:
+
 - `PERSONAL` — your name, bio, links
 - `EXPERIENCES` — your work history
 - `PROJECTS` — your AI projects
@@ -76,4 +78,4 @@ Push to GitHub → connect on [Vercel](https://vercel.com) → deploy. Zero conf
 
 ## Resume
 
-Add your resume PDF to `public/resume.pdf` so the download button works.
+Add your resume PDF to `public/yashpal.resume.pdf` so the download button works.
