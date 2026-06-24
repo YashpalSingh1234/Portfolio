@@ -10,7 +10,7 @@ export const PERSONAL = {
   github: 'https://github.com/YashpalSingh1234',
   linkedin: 'https://www.linkedin.com/in/yashpal-singh-65810b241/',
   location: 'Ahmedabad',
-  resumeUrl: '/yashpal.resume.pdf',
+  resumeUrl: '/resume.pdf',
   availability: 'Open to AI Engineer / ML Engineer opportunities',
 }
 
