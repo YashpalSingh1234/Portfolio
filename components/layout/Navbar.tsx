@@ -118,7 +118,7 @@ export function Navbar() {
               ))}
             </nav>
             <a
-              href="/resume.pdf"
+              href="/yashpal.resume.pdf"
               download
               className="flex items-center justify-center h-12 rounded-xl bg-brand-500 text-white font-medium text-base hover:bg-brand-600 transition-colors"
             >
