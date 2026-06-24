@@ -76,7 +76,7 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <a
-              href="/resume.pdf"
+              href="/yashpal.resume.pdf"
               download
               className="hidden sm:inline-flex items-center gap-2 h-9 px-4 text-xs font-medium rounded-lg bg-brand-500 text-white hover:bg-brand-600 transition-colors shadow-[0_0_20px_rgba(99,102,241,0.25)]"
             >
@@ -118,7 +118,7 @@ export function Navbar() {
               ))}
             </nav>
             <a
-              href="/resume.pdf"
+              href="/yashpal.resume.pdf"
               download
               className="flex items-center justify-center h-12 rounded-xl bg-brand-500 text-white font-medium text-base hover:bg-brand-600 transition-colors"
             >
