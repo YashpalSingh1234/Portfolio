@@ -23,19 +23,21 @@ export function Hero() {
       id="hero"
       className="relative flex min-h-[92vh] flex-col items-center justify-center overflow-hidden pt-16"
     >
-      {/* Background mesh gradient */}
+      {/* Background mesh gradient (decorative) */}
       <div
+        aria-hidden="true"
         className="absolute inset-0 -z-10"
         style={{
           background:
             'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(99,102,241,0.18) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 80% 80%, rgba(168,85,247,0.08) 0%, transparent 60%)',
         }}
       />
-      <div className="absolute inset-0 -z-10 grid-bg opacity-30" />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 grid-bg opacity-30" />
 
-      {/* Ambient orbs */}
-      <div className="absolute top-1/4 left-1/4 h-64 w-64 rounded-full bg-brand-500/5 blur-3xl animate-float pointer-events-none" />
+      {/* Ambient orbs (decorative) */}
+      <div aria-hidden="true" className="absolute top-1/4 left-1/4 h-64 w-64 rounded-full bg-brand-500/5 blur-3xl animate-float pointer-events-none" />
       <div
+        aria-hidden="true"
         className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-purple-500/5 blur-3xl animate-float pointer-events-none"
         style={{ animationDelay: '-3s' }}
       />
