@@ -5,13 +5,15 @@ import { motion } from 'framer-motion'
 import { ChevronDown, ChevronUp, Briefcase } from 'lucide-react'
 import { Badge } from '@/components/ui/Badge'
 import { SectionHeading } from '@/components/ui/SectionHeading'
+import { SectionBackground } from '@/components/ui/SectionBackground'
 import { EXPERIENCES } from '@/lib/data'
 
 export function Experience() {
   const [expanded, setExpanded] = useState<string | null>(EXPERIENCES[0].id)
 
   return (
-    <section id="experience" className="section-padding bg-[var(--bg-secondary)]">
+    <section id="experience" className="relative overflow-hidden section-padding bg-[var(--bg-secondary)]">
+      <SectionBackground variant="blueprint" />
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Career"

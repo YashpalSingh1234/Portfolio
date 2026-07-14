@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronRight } from 'lucide-react'
 import { SectionHeading } from '@/components/ui/SectionHeading'
+import { SectionBackground } from '@/components/ui/SectionBackground'
 
 const PIPELINE_STAGES = [
   {
@@ -73,7 +74,8 @@ export function Architecture() {
   const activeStage = PIPELINE_STAGES.find((s) => s.id === active)!
 
   return (
-    <section id="architecture" className="section-padding">
+    <section id="architecture" className="relative overflow-hidden section-padding">
+      <SectionBackground variant="circuit" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="System Design"

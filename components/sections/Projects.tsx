@@ -20,6 +20,7 @@ import {
 } from 'lucide-react'
 import { Badge } from '@/components/ui/Badge'
 import { SectionHeading } from '@/components/ui/SectionHeading'
+import { SectionBackground } from '@/components/ui/SectionBackground'
 
 /* ─────────────────────────────────────────────
    Verified data — extracted directly from
@@ -760,8 +761,23 @@ function BilloCard() {
 
 /* ── Section ── */
 export function Projects() {
+  // Cheap, direct DOM style mutation — no React re-render, no layout work.
+  // Powers the mouse-reactive glow in SectionBackground's circuit variant.
+  function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = ((e.clientX - rect.left) / rect.width) * 100
+    const y = ((e.clientY - rect.top) / rect.height) * 100
+    e.currentTarget.style.setProperty('--mx', `${x}%`)
+    e.currentTarget.style.setProperty('--my', `${y}%`)
+  }
+
   return (
-    <section id="projects" className="section-padding">
+    <section
+      id="projects"
+      className="relative overflow-hidden section-padding"
+      onMouseMove={handleMouseMove}
+    >
+      <SectionBackground variant="circuit" interactive />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Featured Work"

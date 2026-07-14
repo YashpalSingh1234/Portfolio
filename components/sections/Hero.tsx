@@ -41,6 +41,16 @@ export function Hero() {
         className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-purple-500/5 blur-3xl animate-float pointer-events-none"
         style={{ animationDelay: '-3s' }}
       />
+      {/* Extra soft aurora drift — slow, organic movement layered behind the existing orbs */}
+      <div
+        aria-hidden="true"
+        className="absolute top-0 right-1/3 h-72 w-72 rounded-full bg-pink-500/[0.04] blur-3xl animate-drift pointer-events-none"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-brand-400/[0.05] blur-3xl animate-drift-slow pointer-events-none"
+        style={{ animationDelay: '-6s' }}
+      />
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-8 sm:py-10 text-center">
 

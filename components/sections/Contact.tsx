@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Github, Linkedin, MapPin, Send, Check } from 'lucide-react'
 import { SectionHeading } from '@/components/ui/SectionHeading'
+import { SectionBackground } from '@/components/ui/SectionBackground'
 import { PERSONAL } from '@/lib/data'
 
 export function Contact() {
@@ -19,7 +20,8 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="section-padding bg-[var(--bg-secondary)]">
+    <section id="contact" className="relative overflow-hidden section-padding bg-[var(--bg-secondary)]">
+      <SectionBackground variant="ambient" />
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Get in Touch"

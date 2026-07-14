@@ -55,6 +55,11 @@ const config: Config = {
         'spin-slow': 'spin 8s linear infinite',
         'glow': 'glow 2s ease-in-out infinite alternate',
         'shimmer': 'shimmer 2s linear infinite',
+        'drift': 'drift 22s ease-in-out infinite',
+        'drift-slow': 'drift 30s ease-in-out infinite',
+        'grid-pan': 'grid-pan 40s linear infinite',
+        'scan': 'scan 7s ease-in-out infinite',
+        'dash': 'dash 3s linear infinite',
       },
       keyframes: {
         'gradient-shift': {
@@ -72,6 +77,24 @@ const config: Config = {
         'shimmer': {
           '0%': { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },
+        },
+        'drift': {
+          '0%, 100%': { transform: 'translate3d(0, 0, 0) scale(1)' },
+          '33%': { transform: 'translate3d(3%, -4%, 0) scale(1.06)' },
+          '66%': { transform: 'translate3d(-3%, 3%, 0) scale(0.96)' },
+        },
+        'grid-pan': {
+          from: { backgroundPosition: '0px 0px' },
+          to: { backgroundPosition: '64px 64px' },
+        },
+        'scan': {
+          '0%, 100%': { transform: 'translate3d(0, -120%, 0)', opacity: '0' },
+          '10%': { opacity: '1' },
+          '50%': { transform: 'translate3d(0, 0%, 0)', opacity: '1' },
+          '90%': { opacity: '1' },
+        },
+        'dash': {
+          to: { strokeDashoffset: -48 },
         },
       },
       backdropBlur: {

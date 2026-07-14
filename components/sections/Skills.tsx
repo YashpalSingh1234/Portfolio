@@ -2,11 +2,13 @@
 
 import { motion } from 'framer-motion'
 import { SectionHeading } from '@/components/ui/SectionHeading'
+import { SectionBackground } from '@/components/ui/SectionBackground'
 import { SKILL_GROUPS } from '@/lib/data'
 
 export function Skills() {
   return (
-    <section id="skills" className="section-padding bg-[var(--bg-secondary)]">
+    <section id="skills" className="relative overflow-hidden section-padding bg-[var(--bg-secondary)]">
+      <SectionBackground variant="neural" />
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Capabilities"
