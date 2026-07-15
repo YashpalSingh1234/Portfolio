@@ -94,7 +94,7 @@ const config: Config = {
           '90%': { opacity: '1' },
         },
         'dash': {
-          to: { strokeDashoffset: -48 },
+          to: { strokeDashoffset: "-48" },
         },
       },
       backdropBlur: {
