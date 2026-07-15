@@ -76,10 +76,25 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <h1 className="text-4xl font-bold tracking-tight text-[var(--text-primary)] sm:text-6xl lg:text-7xl">
-            <span className="block">{PERSONAL.name}</span>
-            <span className="mt-2 block gradient-text text-3xl sm:text-5xl lg:text-6xl">
-              {PERSONAL.title}
+          <h1 className="tracking-tight">
+            {/* Greeting — small, subtle accent, understated */}
+            <span className="flex items-center justify-center gap-1.5 text-sm font-medium text-[var(--brand)] dark:text-[#A5B4FC] sm:text-base">
+              Hi, I&apos;m
+              <span
+                aria-hidden="true"
+                className="inline-block h-1.5 w-1.5 rounded-full bg-current animate-pulse-slow"
+              />
+            </span>
+
+            {/* Name — the visual focus: largest, pure white, no gradient, no glow */}
+            <span className="mt-2 block text-4xl font-extrabold text-[var(--text-primary)] dark:text-white sm:text-6xl lg:text-7xl">
+              {PERSONAL.name}
+            </span>
+
+            {/* Role — complements the name rather than competing with it */}
+            <span className="mt-3 block text-2xl font-semibold sm:text-4xl lg:text-5xl">
+              <span className="text-[var(--text-primary)] dark:text-white">AI Engineer</span>
+              <span className="text-blue-400"> &amp; Machine Learning Developer</span>
             </span>
           </h1>
         </motion.div>
