@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/ui/ThemeProvider'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics'
-import { VercelAnalytics } from '@/components/analytics/VercelAnalytics'
 import { PERSONAL } from '@/lib/data'
 import { ALL_SKILLS, SITE_DESCRIPTION, SITE_KEYWORDS, SITE_NAME, SITE_TITLE, SITE_URL, SOCIAL_LINKS } from '@/lib/seo'
 import './globals.css'
@@ -151,8 +151,8 @@ export default function RootLayout({
         </ThemeProvider>
         {/* Disabled until NEXT_PUBLIC_GA_ID is set in the environment. */}
         <GoogleAnalytics />
-        {/* Zero-config Vercel Web Analytics — safe to leave on always. */}
-        <VercelAnalytics />
+        {/* Vercel Web Analytics — Next.js App Router entrypoint, zero-config. */}
+        <Analytics />
       </body>
     </html>
   )
