@@ -2,10 +2,10 @@ import type { Experience, SkillGroup, Certification, BlogPost } from '@/types'
 
 export const PERSONAL = {
   name: 'Yashpal Singh',
-  title: 'AI Engineer | Building Intelligent Applications',
+  title: 'AI/ML R&D Engineer | Building Intelligent Applications',
   tagline: 'Building production AI products and intelligent automation systems.',
   shortBio:
-    'Computer Science graduate with experience in Unity development and a transition into AI/ML. Built projects across RAG, computer vision, and model experimentation using modern AI tooling.',
+    'AI/ML R&D Engineer with 4 years of professional experience. Focused on Retrieval-Augmented Generation, LLM applications, and computer vision, using modern AI tooling to take projects from research to production.',
   email: 'rk7129357@email.com',
   github: 'https://github.com/YashpalSingh1234',
   linkedin: 'https://www.linkedin.com/in/yashpal-singh-65810b241/',
@@ -17,28 +17,18 @@ export const PERSONAL = {
 export const EXPERIENCES: Experience[] = [
   {
     id: 'exp-aiml',
-    role: 'AI/ML Developer (Projects & Research)',
+    role: 'AI/ML R&D Engineer',
     company: 'Phibonacci Learning',
-    period: 'Aug 2024 – Present',
+    period: 'Aug 2022 – Present',
     type: 'Full-time',
+    highlight: '4 Years of Professional Experience',
     achievements: [
       'Designed and built Retrieval-Augmented Generation (RAG) systems, combining LLM workflows with vector search to ground responses in retrieved context.',
       'Built and experimented with model training, fine-tuning, and inference workflows using PyTorch and Hugging Face.',
       'Built computer vision solutions using OpenCV and YOLO-based models for object detection and image-processing tasks.',
+      'Worked across the full AI/ML R&D lifecycle — experimentation, model integration, and API-based deployment — to move projects from research prototypes to production-oriented systems.',
     ],
-    tech: ['Python', 'PyTorch', 'Hugging Face', 'LangChain', 'Vector Databases', 'OpenCV', 'YOLO'],
-  },
-  {
-    id: 'exp-unity',
-    role: 'Unity Developer (3D Simulation)',
-    company: 'Phibonacci Learning',
-    period: 'Aug 2022 – Jul 2024',
-    type: 'Full-time',
-    achievements: [
-      'Built and maintained real-time 3D simulation applications in Unity using C#, covering simulation logic, scene behaviour, and performance-aware programming.',
-      'Strengthened core engineering fundamentals — debugging real-time systems, algorithmic problem-solving, and writing maintainable code — that carried directly into the move into AI/ML.',
-    ],
-    tech: ['Unity', 'C#'],
+    tech: ['Python', 'PyTorch', 'Hugging Face', 'LangChain', 'Vector Databases', 'OpenCV', 'YOLO', 'FastAPI'],
   },
 ]
 

@@ -1,6 +1,6 @@
-# AI Engineer Portfolio
+# AI/ML R&D Engineer Portfolio
 
-World-class, production-grade portfolio website for an AI/ML Engineer.
+World-class, production-grade portfolio website for an AI/ML R&D Engineer.
 
 ## Stack
 

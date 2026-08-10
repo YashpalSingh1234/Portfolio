@@ -6,15 +6,18 @@ import { PERSONAL, SKILL_GROUPS } from '@/lib/data'
  * robots, manifest, JSON-LD, OG images) stays in sync.
  */
 export const SITE_URL = 'https://yash.cvking.in'
-export const SITE_NAME = `${PERSONAL.name} — AI Engineer Portfolio`
-export const SITE_TITLE = `${PERSONAL.name} — AI Engineer | LLM, RAG & MLOps`
+export const SITE_NAME = `${PERSONAL.name} — AI/ML R&D Engineer Portfolio`
+export const SITE_TITLE = `${PERSONAL.name} — AI/ML R&D Engineer | LLM, RAG & MLOps`
 export const SITE_DESCRIPTION =
-  'AI Engineer with 2+ years of R&D experience building production-grade ML pipelines, LLM applications, and RAG systems. Specialising in applied AI, generative AI, computer vision, and MLOps.'
+  'AI/ML R&D Engineer with 4 years of professional experience building production-grade ML pipelines, LLM applications, and RAG systems. Specialising in applied AI, generative AI, computer vision, and MLOps.'
 
 export const SITE_KEYWORDS = [
   'Yashpal Singh',
+  'AI/ML R&D Engineer',
   'AI Engineer',
   'Machine Learning Engineer',
+  'Generative AI Engineer',
+  'RAG Engineer',
   'LLM Engineer',
   'RAG systems',
   'Retrieval Augmented Generation',
@@ -23,8 +26,8 @@ export const SITE_KEYWORDS = [
   'PyTorch',
   'LangChain',
   'FastAPI',
-  'Computer Vision',
-  'Python Developer',
+  'Computer Vision Engineer',
+  'Python AI Engineer',
   'AI Portfolio',
 ]
 

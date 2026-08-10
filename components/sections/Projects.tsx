@@ -32,13 +32,13 @@ import { SectionBackground } from '@/components/ui/SectionBackground'
 const CVKING = {
   id: 'cvking',
   title: 'CVKing',
-  tagline: 'AI Resume Builder, Resume Analyzer & Free CV Maker',
+  tagline: 'AI-Powered Resume & Career Platform',
   description:
-    'A full-stack SaaS platform that helps students and professionals build ATS-friendly resumes using AI. Covers the complete job-application workflow — from a blank form to a downloadable, recruiter-ready PDF.',
+    'An AI-powered resume and career platform, independently designed, built, and deployed end-to-end — frontend, backend, database, AI integrations, and infrastructure all handled solo. Live in production and actively used by real users for the complete job-application workflow, from a blank form to a downloadable, recruiter-ready PDF.',
   problem:
     'Most job seekers submit resumes that fail automated Applicant Tracking System (ATS) filters before a human ever reads them. Existing tools are either too expensive, too generic, or lack actionable AI feedback.',
   solution:
-    'CVKing combines an AI Resume Optimizer, a real-time ATS score checker, and a structured CV builder into a single freemium SaaS product priced for the Indian job market.',
+    'CVKing combines an AI Resume Optimizer, a real-time ATS score checker, and a structured CV builder into a single freemium SaaS product priced for the Indian job market — built solo across the full stack, from database schema to AI integrations to production deployment.',
   // Top 3 shown on the card — chosen for maximum recruiter signal
   cardFeatures: [
     {
@@ -276,7 +276,7 @@ function CVKingCard() {
 
           {/* Feature pills — top-left */}
           <div className="absolute top-4 left-4 flex flex-col gap-1.5 z-10">
-            {['ATS Optimized', 'AI-Powered', 'Freemium SaaS'].map((pill) => (
+            {['Independently Built', 'AI-Powered', 'Live in Production'].map((pill) => (
               <span
                 key={pill}
                 className="inline-block rounded-md border border-[var(--border)] bg-[var(--bg-primary)]/80 backdrop-blur-sm px-2.5 py-0.5 text-[10px] font-mono font-semibold text-[var(--brand)]"

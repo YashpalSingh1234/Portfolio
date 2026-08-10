@@ -69,7 +69,7 @@ export default function OGImage() {
             color: 'transparent',
           }}
         >
-          AI Engineer · LLM · RAG · MLOps
+          AI/ML R&D Engineer · LLM · RAG
         </div>
 
         {/* Tagline */}

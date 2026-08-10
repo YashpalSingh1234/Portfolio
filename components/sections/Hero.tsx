@@ -6,10 +6,10 @@ import { PERSONAL } from '@/lib/data'
 
 // Credible stats only — no invented percentages or user counts.
 const STATS = [
+  { value: '4', label: 'Years Experience' },
   { value: '1', label: 'Production Project' },
   { value: '15+', label: 'Technologies' },
   { value: '8', label: 'AI Features Built' },
-  { value: '2+', label: 'Years R&D' },
 ]
 
 const TECH_CHIPS = [
@@ -93,8 +93,10 @@ export function Hero() {
 
             {/* Role — complements the name rather than competing with it */}
             <span className="mt-3 block text-2xl font-semibold sm:text-4xl lg:text-5xl">
-              <span className="text-[var(--text-primary)] dark:text-white">AI Engineer</span>
-              <span className="text-blue-400"> &amp; Machine Learning Developer</span>
+              <span className="text-[var(--text-primary)] dark:text-white">AI/ML R&amp;D Engineer</span>
+            </span>
+            <span className="mt-2 block text-base font-medium text-blue-400 sm:text-xl">
+              4 Years of Professional Experience
             </span>
           </h1>
         </motion.div>

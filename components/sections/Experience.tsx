@@ -18,7 +18,7 @@ export function Experience() {
         <SectionHeading
           eyebrow="Career"
           title="Experience"
-          subtitle="From real-time 3D simulation to applied AI — model integration, RAG systems, and computer vision."
+          subtitle="AI/ML R&D Engineer with 4 years of professional experience — model integration, RAG systems, and computer vision."
         />
 
         <div className="relative">
