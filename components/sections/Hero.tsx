@@ -7,7 +7,10 @@ import { PERSONAL } from '@/lib/data'
 // Credible stats only — no invented percentages or user counts.
 const STATS = [
   { value: '4', label: 'Years Experience' },
-  { value: '1', label: 'Production Project' },
+  { value: '1', 
+    
+    
+    label: 'Production Project' },
   { value: '15+', label: 'Technologies' },
   { value: '8', label: 'AI Features Built' },
 ]
@@ -23,7 +26,7 @@ export function Hero() {
       id="hero"
       className="relative flex min-h-[92vh] flex-col items-center justify-center overflow-hidden pt-16"
     >
-      {/* Background mesh gradient (decorative) */}
+      {/* Background mesh gradient (decorative) — also acts as a readability overlay above the global network background */}
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-10"
@@ -33,6 +36,16 @@ export function Hero() {
         }}
       />
       <div aria-hidden="true" className="absolute inset-0 -z-10 grid-bg opacity-30" />
+      {/* Extra soft radial vignette so Hero copy stays crisp over the animated nodes */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10"
+        style={{
+          background:
+            'radial-gradient(ellipse 70% 55% at 50% 45%, var(--bg-primary) 0%, transparent 65%)',
+          opacity: 0.55,
+        }}
+      />
 
       {/* Ambient orbs (decorative) */}
       <div aria-hidden="true" className="absolute top-1/4 left-1/4 h-64 w-64 rounded-full bg-brand-500/5 blur-3xl animate-float pointer-events-none" />

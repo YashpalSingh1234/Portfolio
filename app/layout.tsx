@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/ui/ThemeProvider'
+import { AIBackground } from '@/components/ui/AIBackground'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics'
@@ -144,6 +145,8 @@ export default function RootLayout({
             Skip to content
           </a>
           <div className="noise-overlay relative min-h-screen">
+            {/* Global AI-themed animation background — random sequence of scenes, fixed to the viewport, behind all page content */}
+            <AIBackground />
             <Navbar />
             <main id="main-content">{children}</main>
             <Footer />
