@@ -24,7 +24,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[92vh] flex-col items-center justify-center overflow-hidden pt-16"
+      className="relative flex min-h-hero flex-col items-center justify-center overflow-hidden pt-16"
     >
       {/* Background mesh gradient (decorative) — also acts as a readability overlay above the global network background */}
       <div
@@ -65,7 +65,7 @@ export function Hero() {
         style={{ animationDelay: '-6s' }}
       />
 
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-8 sm:py-10 text-center">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-8 sm:pt-10 sm:pb-24 text-center">
 
         {/* Availability badge */}
         <motion.div
@@ -74,8 +74,8 @@ export function Hero() {
           transition={{ duration: 0.5 }}
           className="mb-5 flex justify-center"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] bg-[var(--bg-secondary)]/80 px-4 py-1.5 text-xs font-mono text-[var(--text-secondary)] backdrop-blur-sm">
-            <span className="relative flex h-2 w-2">
+          <span className="inline-flex max-w-full items-center gap-2 rounded-2xl sm:rounded-full border border-[var(--border-strong)] bg-[var(--bg-secondary)]/80 px-3 sm:px-4 py-1.5 text-center text-[11px] leading-snug sm:text-xs font-mono text-[var(--text-secondary)] backdrop-blur-sm">
+            <span className="relative flex h-2 w-2 shrink-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
             </span>
@@ -100,7 +100,7 @@ export function Hero() {
             </span>
 
             {/* Name — the visual focus: largest, pure white, no gradient, no glow */}
-            <span className="mt-2 block text-4xl font-extrabold text-[var(--text-primary)] dark:text-white sm:text-6xl lg:text-7xl">
+            <span className="mt-2 block break-words text-3xl min-[380px]:text-4xl font-extrabold text-[var(--text-primary)] dark:text-white sm:text-6xl lg:text-7xl">
               {PERSONAL.name}
             </span>
 
@@ -119,7 +119,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-3 font-mono text-sm sm:text-base text-[var(--brand)] tracking-wide"
+          className="mt-3 font-mono text-[13px] sm:text-base text-[var(--brand)] tracking-wide"
         >
           <Terminal className="inline h-4 w-4 mr-2 mb-0.5" />
           {PERSONAL.tagline}
@@ -130,7 +130,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mx-auto mt-3 max-w-2xl text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed"
+          className="mx-auto mt-3 max-w-2xl text-[0.9375rem] sm:text-lg text-[var(--text-secondary)] leading-relaxed"
         >
           {PERSONAL.shortBio}
         </motion.p>
@@ -162,7 +162,7 @@ export function Hero() {
           {/* Primary — largest, most emphasis */}
           <a
             href="#projects"
-            className="inline-flex items-center gap-2 h-12 px-8 rounded-xl bg-brand-500 text-white text-sm font-bold hover:bg-brand-600 transition-all shadow-[0_0_32px_rgba(99,102,241,0.5)] hover:shadow-[0_0_48px_rgba(99,102,241,0.7)] hover:-translate-y-0.5 active:scale-95 ring-2 ring-brand-500/30"
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 h-12 px-8 rounded-xl bg-brand-500 text-white text-sm font-bold hover:bg-brand-600 transition-all shadow-[0_0_32px_rgba(99,102,241,0.5)] hover:shadow-[0_0_48px_rgba(99,102,241,0.7)] hover:-translate-y-0.5 active:scale-95 ring-2 ring-brand-500/30"
           >
             <Sparkles className="h-4 w-4" />
             View Work
@@ -172,7 +172,7 @@ export function Hero() {
           <a
             href={PERSONAL.resumeUrl}
             download
-            className="inline-flex items-center gap-2 h-12 px-6 rounded-xl border border-[var(--border-strong)] bg-[var(--bg-secondary)] text-[var(--text-primary)] text-sm font-semibold hover:bg-[var(--bg-tertiary)] hover:border-[var(--brand)] transition-all active:scale-95"
+            className="inline-flex flex-1 sm:flex-none items-center justify-center gap-2 h-12 px-4 sm:px-6 rounded-xl border border-[var(--border-strong)] bg-[var(--bg-secondary)] text-[var(--text-primary)] text-sm font-semibold hover:bg-[var(--bg-tertiary)] hover:border-[var(--brand)] transition-all active:scale-95"
           >
             <Download className="h-4 w-4" />
             Resume
@@ -180,7 +180,7 @@ export function Hero() {
           {/* Tertiary */}
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 h-12 px-6 rounded-xl border border-[var(--border)] text-[var(--text-secondary)] text-sm font-medium hover:text-[var(--text-primary)] hover:border-[var(--border-strong)] transition-all active:scale-95"
+            className="inline-flex flex-1 sm:flex-none items-center justify-center gap-2 h-12 px-4 sm:px-6 rounded-xl border border-[var(--border)] text-[var(--text-secondary)] text-sm font-medium hover:text-[var(--text-primary)] hover:border-[var(--border-strong)] transition-all active:scale-95"
           >
             <Mail className="h-4 w-4" />
             Contact
@@ -199,7 +199,7 @@ export function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-tertiary)] hover:text-[var(--brand)] hover:border-[var(--border-strong)] transition-all"
+            className="flex h-10 w-10 sm:h-9 sm:w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-tertiary)] hover:text-[var(--brand)] hover:border-[var(--border-strong)] transition-all"
           >
             <Github className="h-4 w-4" />
           </a>
@@ -208,7 +208,7 @@ export function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-tertiary)] hover:text-[var(--brand)] hover:border-[var(--border-strong)] transition-all"
+            className="flex h-10 w-10 sm:h-9 sm:w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-tertiary)] hover:text-[var(--brand)] hover:border-[var(--border-strong)] transition-all"
           >
             <Linkedin className="h-4 w-4" />
           </a>
@@ -236,12 +236,13 @@ export function Hero() {
 
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator — sm+ only: on phones the content already runs past the fold, and
+          the indicator used to sit on top of the stats row. */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 sm:flex"
       >
         <span className="text-xs font-mono text-[var(--text-tertiary)]">scroll</span>
         <motion.div

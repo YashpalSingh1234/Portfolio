@@ -121,16 +121,22 @@ function createTokensScene(env: Env): Scene {
 
   const make = (stagger: boolean): Tok => {
     const max = rand(6000, 10000)
+    const text = pick(WORDS)
+    const size = env.mobile ? 11 : rand(11, 14)
+    // Keep the whole chip inside the viewport (estimated mono width + padding).
+    // Only bites on narrow phones; on desktop the cap stays at the original 0.9.
+    const estW = text.length * size * 0.6 + 14
+    const maxX = Math.max(0.04, 1 - (estW + 8) / env.w)
     return {
-      x: rand(0.03, 0.9) * env.w,
+      x: rand(0.03, Math.min(0.9, maxX)) * env.w,
       y: rand(0.08, 0.95) * env.h,
       vx: rand(-0.004, 0.004),
       vy: -rand(0.006, 0.018),
-      text: pick(WORDS),
+      text,
       life: stagger ? rand(0, max) : 0,
       max,
       tint: Math.random(),
-      size: env.mobile ? 11 : rand(11, 14),
+      size,
       w: 0,
     }
   }
@@ -545,7 +551,9 @@ function createTerminalScene(env: Env): Scene {
   let blocks: Block[] = []
 
   const make = (stagger: boolean): Block => {
-    const line = pick(LINES)
+    // Only pick lines that fit the viewport width, so nothing is typed off-screen on narrow phones.
+    const fitting = LINES.filter((l) => (l.length + 1) * fs * 0.6 <= env.w * 0.94)
+    const line = pick(fitting.length ? fitting : [LINES.reduce((a, b) => (a.length <= b.length ? a : b))])
     const est = line.length * fs * 0.6
     const maxX = Math.max(0.03, 1 - est / env.w - 0.02)
     return {
@@ -683,18 +691,37 @@ export function AIBackground({ className = '' }: AIBackgroundProps) {
       paintStatic()
     }
 
+    let lastW = 0
+    let lastH = 0
+
     function resize() {
-      env.w = window.innerWidth
-      env.h = window.innerHeight
-      env.mobile = env.w < 640
+      const w = window.innerWidth
+      const rawH = window.innerHeight
+      // Mobile browsers fire `resize` whenever the URL bar collapses/expands while
+      // scrolling: width stays put and height moves by ~50–120px. That isn't a real
+      // layout change, so keep the larger height (the canvas keeps covering the
+      // whole screen) and do NOT re-init the scenes — doing so on every scroll
+      // would restart the animation constantly.
+      const heightOnly = lastW === w && lastH !== 0 && Math.abs(rawH - lastH) < 160
+      const h = heightOnly ? Math.max(rawH, lastH) : rawH
+      if (heightOnly && h === lastH) return
+      lastW = w
+      lastH = h
+
+      env.w = w
+      env.h = h
+      env.mobile = w < 640
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
       canvas!.width = Math.floor(env.w * dpr)
       canvas!.height = Math.floor(env.h * dpr)
       canvas!.style.width = `${env.w}px`
       canvas!.style.height = `${env.h}px`
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0)
-      for (const a of active) a.scene.init()
-      if (prefersReducedMotion && active.length) settleStatic()
+      if (!heightOnly) for (const a of active) a.scene.init()
+      if (prefersReducedMotion && active.length) {
+        if (heightOnly) paintStatic()
+        else settleStatic()
+      }
     }
 
     function step(dt: number) {

@@ -83,14 +83,15 @@ export function Architecture() {
           subtitle="How I think about end-to-end ML systems — from raw data to monitored production."
         />
 
-        {/* Pipeline visual */}
-        <div className="mb-8 overflow-x-auto pb-2">
-          <div className="flex items-center gap-0 min-w-max mx-auto w-fit">
+        {/* Pipeline visual — 2×2 grid on phones, 4-up grid on tablets, original connected row from lg up */}
+        <div className="mb-8 lg:overflow-x-auto lg:pb-2">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:flex lg:items-center lg:gap-0 lg:min-w-max lg:mx-auto lg:w-fit">
             {PIPELINE_STAGES.map((stage, i) => (
-              <div key={stage.id} className="flex items-center">
+              <div key={stage.id} className="flex lg:items-center">
                 <button
                   onClick={() => setActive(stage.id)}
-                  className={`flex flex-col items-center gap-2 rounded-2xl border-2 px-6 py-4 text-center transition-all duration-200 min-w-[120px] ${
+                  aria-pressed={active === stage.id}
+                  className={`flex flex-1 lg:flex-none flex-col items-center gap-2 rounded-2xl border-2 px-3 sm:px-4 lg:px-6 py-4 text-center transition-all duration-200 min-w-0 lg:min-w-[120px] ${
                     active === stage.id
                       ? `${stage.accent} bg-gradient-to-b ${stage.color}`
                       : 'border-[var(--border)] bg-[var(--bg-secondary)] hover:border-[var(--border-strong)]'
@@ -107,7 +108,7 @@ export function Architecture() {
                 </button>
 
                 {i < PIPELINE_STAGES.length - 1 && (
-                  <div className="flex items-center px-1">
+                  <div className="hidden lg:flex items-center px-1">
                     <ChevronRight className="h-5 w-5 text-[var(--text-tertiary)]" />
                   </div>
                 )}
@@ -122,9 +123,9 @@ export function Architecture() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
-          className={`rounded-2xl border-2 ${activeStage.accent} bg-gradient-to-br ${activeStage.color} bg-[var(--bg-secondary)] p-6 sm:p-8`}
+          className={`rounded-2xl border-2 ${activeStage.accent} bg-gradient-to-br ${activeStage.color} bg-[var(--bg-secondary)] p-5 sm:p-8`}
         >
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-3 sm:gap-4 mb-6">
             <span className="text-4xl">{activeStage.icon}</span>
             <div>
               <h3 className="text-xl font-bold text-[var(--text-primary)]">{activeStage.label} Layer</h3>
@@ -134,7 +135,7 @@ export function Architecture() {
 
           <div className="grid sm:grid-cols-2 gap-4 mb-6">
             {activeStage.details.map((d) => (
-              <div key={d.label} className="rounded-xl border border-[var(--border)] bg-[var(--bg-primary)]/60 backdrop-blur-sm p-4">
+              <div key={d.label} className="rounded-xl border border-[var(--border)] bg-[var(--bg-primary)]/60 backdrop-blur-sm p-4 min-w-0 break-words">
                 <p className="text-xs font-mono text-[var(--text-tertiary)] uppercase tracking-wider mb-1">{d.label}</p>
                 <p className="text-sm text-[var(--text-primary)]">{d.value}</p>
               </div>

@@ -43,17 +43,17 @@ export function Contact() {
             </div>
 
             {/* Contact links */}
-            <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] p-5 flex flex-col gap-3">
+            <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] p-3 sm:p-5 flex flex-col gap-1 sm:gap-3">
               <a
                 href={`mailto:${PERSONAL.email}`}
                 className="flex items-center gap-3 rounded-xl p-3 hover:bg-[var(--bg-secondary)] transition-colors group"
               >
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-500/10 border border-brand-500/20">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand-500/10 border border-brand-500/20">
                   <Mail className="h-4 w-4 text-[var(--brand)]" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <p className="text-xs text-[var(--text-tertiary)]">Email</p>
-                  <p className="text-sm font-medium text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors">
+                  <p className="text-sm font-medium text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors break-words">
                     {PERSONAL.email}
                   </p>
                 </div>
@@ -64,12 +64,12 @@ export function Contact() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-xl p-3 hover:bg-[var(--bg-secondary)] transition-colors group"
               >
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--bg-secondary)]">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--bg-secondary)]">
                   <Github className="h-4 w-4 text-[var(--text-secondary)]" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <p className="text-xs text-[var(--text-tertiary)]">GitHub</p>
-                  <p className="text-sm font-medium text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors">
+                  <p className="text-sm font-medium text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors break-words">
                     github.com/YashpalSingh1234
                   </p>
                 </div>
@@ -80,21 +80,21 @@ export function Contact() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-xl p-3 hover:bg-[var(--bg-secondary)] transition-colors group"
               >
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--bg-secondary)]">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--bg-secondary)]">
                   <Linkedin className="h-4 w-4 text-[var(--text-secondary)]" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <p className="text-xs text-[var(--text-tertiary)]">LinkedIn</p>
-                  <p className="text-sm font-medium text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors">
+                  <p className="text-sm font-medium text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors break-words">
                     www.linkedin.com/in/yashpal-singh-65810b241/
                   </p>
                 </div>
               </a>
               <div className="flex items-center gap-3 rounded-xl p-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--bg-secondary)]">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--bg-secondary)]">
                   <MapPin className="h-4 w-4 text-[var(--text-secondary)]" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <p className="text-xs text-[var(--text-tertiary)]">Location</p>
                   <p className="text-sm font-medium text-[var(--text-primary)]">{PERSONAL.location}</p>
                 </div>

@@ -25,7 +25,7 @@ export function Certifications() {
               transition={{ duration: 0.4, delay: i * 0.08 }}
               className="group rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] p-5 hover:border-[var(--border-strong)] transition-all duration-200"
             >
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-3 sm:gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] text-2xl">
                   {cert.icon}
                 </div>

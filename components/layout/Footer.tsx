@@ -24,12 +24,12 @@ export function Footer() {
           </div>
 
           {/* Nav links */}
-          <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+          <nav aria-label="Footer" className="flex flex-wrap justify-center gap-x-5 sm:gap-x-6 gap-y-1 sm:gap-y-2">
             {FOOTER_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-colors"
+                className="py-2 sm:py-0 text-sm text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-colors"
               >
                 {link.label}
               </a>
@@ -43,7 +43,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-tertiary)] hover:text-[var(--brand)] hover:border-[var(--border-strong)] transition-all"
+              className="flex h-10 w-10 sm:h-9 sm:w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-tertiary)] hover:text-[var(--brand)] hover:border-[var(--border-strong)] transition-all"
             >
               <Github className="h-4 w-4" />
             </a>
@@ -52,21 +52,21 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-tertiary)] hover:text-[var(--brand)] hover:border-[var(--border-strong)] transition-all"
+              className="flex h-10 w-10 sm:h-9 sm:w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-tertiary)] hover:text-[var(--brand)] hover:border-[var(--border-strong)] transition-all"
             >
               <Linkedin className="h-4 w-4" />
             </a>
             <a
               href={`mailto:${PERSONAL.email}`}
               aria-label="Email"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-tertiary)] hover:text-[var(--brand)] hover:border-[var(--border-strong)] transition-all"
+              className="flex h-10 w-10 sm:h-9 sm:w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-tertiary)] hover:text-[var(--brand)] hover:border-[var(--border-strong)] transition-all"
             >
               <Mail className="h-4 w-4" />
             </a>
           </div>
 
           {/* Copyright */}
-          <p className="text-xs text-[var(--text-tertiary)] font-mono">
+          <p className="text-center text-xs text-[var(--text-tertiary)] font-mono leading-relaxed">
             © {new Date().getFullYear()} {PERSONAL.name} · Built with Next.js + Tailwind CSS
           </p>
         </div>

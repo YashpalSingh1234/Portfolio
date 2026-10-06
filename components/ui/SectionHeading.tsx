@@ -19,7 +19,7 @@ export function SectionHeading({
   className,
 }: SectionHeadingProps) {
   return (
-    <div className={cn('mb-16', align === 'center' ? 'text-center' : 'text-left', className)}>
+    <div className={cn('mb-10 sm:mb-16', align === 'center' ? 'text-center' : 'text-left', className)}>
       {eyebrow && (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -28,8 +28,8 @@ export function SectionHeading({
           transition={{ duration: 0.5 }}
           className="mb-3"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] bg-[var(--bg-secondary)] px-3 py-1 text-xs font-mono text-[var(--brand)] uppercase tracking-widest">
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand)] animate-pulse" />
+          <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-[var(--border-strong)] bg-[var(--bg-secondary)] px-3 py-1 text-[11px] sm:text-xs font-mono text-[var(--brand)] uppercase tracking-widest">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--brand)] animate-pulse" />
             {eyebrow}
           </span>
         </motion.div>
@@ -39,7 +39,7 @@ export function SectionHeading({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.55, delay: 0.1 }}
-        className="text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl lg:text-5xl"
+        className="text-balance break-words text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl lg:text-5xl"
       >
         {title}
       </motion.h2>
@@ -50,7 +50,7 @@ export function SectionHeading({
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className={cn(
-            'mt-4 text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed',
+            'mt-3 sm:mt-4 text-[0.9375rem] sm:text-lg text-[var(--text-secondary)] leading-relaxed',
             align === 'center' && 'mx-auto max-w-2xl'
           )}
         >

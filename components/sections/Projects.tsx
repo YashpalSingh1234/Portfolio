@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   ExternalLink,
@@ -21,6 +21,22 @@ import {
 import { Badge } from '@/components/ui/Badge'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { SectionBackground } from '@/components/ui/SectionBackground'
+
+/** Shared modal behaviour: lock page scroll behind the dialog (stops touch scroll-through on phones) and close on Escape. */
+function useModalBehavior(onClose: () => void) {
+  useEffect(() => {
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = prevOverflow
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [onClose])
+}
 
 /* ─────────────────────────────────────────────
    Verified data — extracted directly from
@@ -128,6 +144,7 @@ const CVKING = {
 
 /* ── Detail Modal ── */
 function CVKingModal({ onClose }: { onClose: () => void }) {
+  useModalBehavior(onClose)
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -144,12 +161,12 @@ function CVKingModal({ onClose }: { onClose: () => void }) {
         exit={{ scale: 0.95, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl border border-[var(--border-strong)] bg-[var(--bg-primary)] shadow-2xl"
+        className="relative z-10 w-full max-w-3xl modal-panel overflow-y-auto overscroll-contain rounded-2xl border border-[var(--border-strong)] bg-[var(--bg-primary)] shadow-2xl"
       >
         {/* Sticky header */}
-        <div className="sticky top-0 flex items-start justify-between gap-4 p-6 border-b border-[var(--border)] bg-[var(--bg-primary)] rounded-t-2xl z-10">
-          <div>
-            <div className="flex items-center gap-2 mb-1">
+        <div className="sticky top-0 flex items-start justify-between gap-3 sm:gap-4 p-4 sm:p-6 border-b border-[var(--border)] bg-[var(--bg-primary)] rounded-t-2xl z-10">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2 mb-1">
               <span className="text-2xl">👑</span>
               <h3 className="text-xl font-bold text-[var(--text-primary)]">{CVKING.title}</h3>
               <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-mono font-semibold text-emerald-400">
@@ -161,13 +178,13 @@ function CVKingModal({ onClose }: { onClose: () => void }) {
           <button
             onClick={onClose}
             aria-label="Close"
-            className="shrink-0 flex h-8 w-8 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-colors"
+            className="shrink-0 flex h-10 w-10 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-colors"
           >
             <X className="h-4 w-4" />
           </button>
         </div>
 
-        <div className="p-6 space-y-8">
+        <div className="p-4 sm:p-6 space-y-6 sm:space-y-8">
           {/* Problem / Solution */}
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-4">
@@ -246,7 +263,7 @@ function CVKingModal({ onClose }: { onClose: () => void }) {
               href={CVKING.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 h-10 px-5 rounded-xl bg-brand-500 text-white text-sm font-medium hover:bg-brand-600 transition-colors shadow-[0_0_20px_rgba(99,102,241,0.25)]"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 h-11 sm:h-10 px-5 rounded-xl bg-brand-500 text-white text-sm font-medium hover:bg-brand-600 transition-colors shadow-[0_0_20px_rgba(99,102,241,0.25)]"
             >
               <ExternalLink className="h-4 w-4" /> Live Demo
             </a>
@@ -271,11 +288,11 @@ function CVKingCard() {
         className="group relative flex flex-col rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] overflow-hidden hover:border-[var(--brand)]/40 transition-all duration-300 hover:shadow-[0_20px_60px_rgba(99,102,241,0.2)] hover:-translate-y-1.5"
       >
         {/* ── Hero band — tall gradient header ── */}
-        <div className="relative h-52 bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-pink-500/10 flex items-center justify-center overflow-hidden">
+        <div className="relative flex flex-col items-center gap-4 px-4 pb-5 pt-4 sm:h-52 sm:justify-center sm:gap-0 sm:p-0 bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-pink-500/10 overflow-hidden">
           <div className="absolute inset-0 grid-bg opacity-20" />
 
           {/* Feature pills — top-left */}
-          <div className="absolute top-4 left-4 flex flex-col gap-1.5 z-10">
+          <div className="relative z-10 flex flex-wrap gap-1.5 self-start pr-14 sm:absolute sm:top-4 sm:left-4 sm:flex-col sm:self-auto sm:pr-0">
             {['Independently Built', 'AI-Powered', 'Live in Production'].map((pill) => (
               <span
                 key={pill}
@@ -303,7 +320,7 @@ function CVKingCard() {
         </div>
 
         {/* ── Card body ── */}
-        <div className="flex flex-col flex-1 p-6">
+        <div className="flex flex-col flex-1 p-5 sm:p-6">
           {/* Title + tagline */}
           <div className="mb-3">
             <h3 className="text-xl font-bold text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors">
@@ -345,7 +362,7 @@ function CVKingCard() {
               href={CVKING.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 inline-flex items-center justify-center gap-2 h-10 rounded-xl bg-brand-500 text-white text-sm font-semibold hover:bg-brand-600 transition-all shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_28px_rgba(99,102,241,0.5)] active:scale-[0.98]"
+              className="flex-1 inline-flex items-center justify-center gap-2 h-11 sm:h-10 rounded-xl bg-brand-500 text-white text-sm font-semibold hover:bg-brand-600 transition-all shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_28px_rgba(99,102,241,0.5)] active:scale-[0.98]"
             >
               <ExternalLink className="h-4 w-4" />
               Live Demo
@@ -353,7 +370,7 @@ function CVKingCard() {
             {/* Secondary — outline */}
             <button
               onClick={() => setOpen(true)}
-              className="flex-1 inline-flex items-center justify-center gap-1.5 h-10 rounded-xl border border-[var(--border-strong)] text-sm font-medium text-[var(--text-primary)] hover:border-[var(--brand)] hover:text-[var(--brand)] transition-all active:scale-[0.98]"
+              className="flex-1 inline-flex items-center justify-center gap-1.5 h-11 sm:h-10 rounded-xl border border-[var(--border-strong)] text-sm font-medium text-[var(--text-primary)] hover:border-[var(--brand)] hover:text-[var(--brand)] transition-all active:scale-[0.98]"
             >
               View Details
               <ChevronRight className="h-4 w-4" />
@@ -502,6 +519,7 @@ const BILLO = {
 
 /* ── Detail Modal ── */
 function BilloModal({ onClose }: { onClose: () => void }) {
+  useModalBehavior(onClose)
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -518,12 +536,12 @@ function BilloModal({ onClose }: { onClose: () => void }) {
         exit={{ scale: 0.95, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl border border-[var(--border-strong)] bg-[var(--bg-primary)] shadow-2xl"
+        className="relative z-10 w-full max-w-3xl modal-panel overflow-y-auto overscroll-contain rounded-2xl border border-[var(--border-strong)] bg-[var(--bg-primary)] shadow-2xl"
       >
         {/* Sticky header */}
-        <div className="sticky top-0 flex items-start justify-between gap-4 p-6 border-b border-[var(--border)] bg-[var(--bg-primary)] rounded-t-2xl z-10">
-          <div>
-            <div className="flex items-center gap-2 mb-1">
+        <div className="sticky top-0 flex items-start justify-between gap-3 sm:gap-4 p-4 sm:p-6 border-b border-[var(--border)] bg-[var(--bg-primary)] rounded-t-2xl z-10">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2 mb-1">
               <span className="text-2xl">🧠</span>
               <h3 className="text-xl font-bold text-[var(--text-primary)]">{BILLO.title}</h3>
               <span className="rounded-full border border-[var(--brand)]/30 bg-[var(--brand)]/10 px-2 py-0.5 text-[10px] font-mono font-semibold text-[var(--brand)]">
@@ -535,13 +553,13 @@ function BilloModal({ onClose }: { onClose: () => void }) {
           <button
             onClick={onClose}
             aria-label="Close"
-            className="shrink-0 flex h-8 w-8 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-colors"
+            className="shrink-0 flex h-10 w-10 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-colors"
           >
             <X className="h-4 w-4" />
           </button>
         </div>
 
-        <div className="p-6 space-y-8">
+        <div className="p-4 sm:p-6 space-y-6 sm:space-y-8">
           {/* Problem / Solution */}
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-4">
@@ -557,19 +575,22 @@ function BilloModal({ onClose }: { onClose: () => void }) {
           {/* Architecture — literal pipeline flow */}
           <div>
             <p className="text-xs font-mono text-[var(--text-tertiary)] uppercase tracking-wider mb-3">Architecture</p>
-            <div className="overflow-x-auto pb-2 -mx-1 px-1">
-              <div className="flex items-center gap-0 min-w-max">
+            {/* Vertical flow on phones; horizontal, scrollable pipeline from sm up */}
+            <div className="sm:overflow-x-auto sm:pb-2 sm:-mx-1 sm:px-1">
+              <div className="flex flex-col items-stretch sm:flex-row sm:items-center sm:min-w-max">
                 {BILLO.architecture.map((step, i) => (
-                  <div key={step.label} className="flex items-center">
-                    <div className="flex flex-col items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] px-4 py-3 text-center min-w-[128px]">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--bg-tertiary)] text-[var(--brand)]">
+                  <div key={step.label} className="flex flex-col items-stretch sm:flex-row sm:items-center">
+                    <div className="flex flex-row items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] px-4 py-3 text-left sm:flex-col sm:gap-2 sm:text-center sm:min-w-[128px]">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--bg-tertiary)] text-[var(--brand)]">
                         {step.icon}
                       </div>
-                      <p className="text-xs font-semibold text-[var(--text-primary)]">{step.label}</p>
-                      <p className="text-[10px] text-[var(--text-tertiary)] leading-snug">{step.detail}</p>
+                      <div className="min-w-0 sm:contents">
+                        <p className="text-xs font-semibold text-[var(--text-primary)]">{step.label}</p>
+                        <p className="text-[11px] sm:text-[10px] text-[var(--text-tertiary)] leading-snug">{step.detail}</p>
+                      </div>
                     </div>
                     {i < BILLO.architecture.length - 1 && (
-                      <ChevronRight className="h-4 w-4 mx-1 shrink-0 text-[var(--text-tertiary)]" />
+                      <ChevronRight className="h-4 w-4 my-1 self-center shrink-0 rotate-90 text-[var(--text-tertiary)] sm:my-0 sm:mx-1 sm:rotate-0" />
                     )}
                   </div>
                 ))}
@@ -611,9 +632,9 @@ function BilloModal({ onClose }: { onClose: () => void }) {
             <div className="grid sm:grid-cols-2 gap-3">
               {BILLO.challenges.map((c) => (
                 <div key={c.issue} className="rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-4">
-                  <p className="text-[10px] font-mono text-amber-400 uppercase tracking-wider mb-1.5">Issue</p>
+                  <p className="text-[11px] sm:text-[10px] font-mono text-amber-400 uppercase tracking-wider mb-1.5">Issue</p>
                   <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-3">{c.issue}</p>
-                  <p className="text-[10px] font-mono text-emerald-400 uppercase tracking-wider mb-1.5">Fix</p>
+                  <p className="text-[11px] sm:text-[10px] font-mono text-emerald-400 uppercase tracking-wider mb-1.5">Fix</p>
                   <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{c.fix}</p>
                 </div>
               ))}
@@ -639,7 +660,7 @@ function BilloModal({ onClose }: { onClose: () => void }) {
               href={BILLO.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 h-10 px-5 rounded-xl bg-brand-500 text-white text-sm font-medium hover:bg-brand-600 transition-colors shadow-[0_0_20px_rgba(99,102,241,0.25)]"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 h-11 sm:h-10 px-5 rounded-xl bg-brand-500 text-white text-sm font-medium hover:bg-brand-600 transition-colors shadow-[0_0_20px_rgba(99,102,241,0.25)]"
             >
               <Github className="h-4 w-4" /> View on GitHub
             </a>
@@ -664,11 +685,11 @@ function BilloCard() {
         className="group relative flex flex-col rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] overflow-hidden hover:border-[var(--brand)]/40 transition-all duration-300 hover:shadow-[0_20px_60px_rgba(99,102,241,0.2)] hover:-translate-y-1.5"
       >
         {/* ── Hero band — tall gradient header ── */}
-        <div className="relative h-52 bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-pink-500/10 flex items-center justify-center overflow-hidden">
+        <div className="relative flex flex-col items-center gap-4 px-4 pb-5 pt-4 sm:h-52 sm:justify-center sm:gap-0 sm:p-0 bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-pink-500/10 overflow-hidden">
           <div className="absolute inset-0 grid-bg opacity-20" />
 
           {/* Feature pills — top-left */}
-          <div className="absolute top-4 left-4 flex flex-col gap-1.5 z-10">
+          <div className="relative z-10 flex flex-wrap gap-1.5 self-start pr-14 sm:absolute sm:top-4 sm:left-4 sm:flex-col sm:self-auto sm:pr-0">
             {['RAG Pipeline', 'Self-Hosted', 'Modular Design'].map((pill) => (
               <span
                 key={pill}
@@ -693,7 +714,7 @@ function BilloCard() {
         </div>
 
         {/* ── Card body ── */}
-        <div className="flex flex-col flex-1 p-6">
+        <div className="flex flex-col flex-1 p-5 sm:p-6">
           {/* Title + tagline */}
           <div className="mb-3">
             <h3 className="text-xl font-bold text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors">
@@ -735,7 +756,7 @@ function BilloCard() {
               href={BILLO.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 inline-flex items-center justify-center gap-2 h-10 rounded-xl bg-brand-500 text-white text-sm font-semibold hover:bg-brand-600 transition-all shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_28px_rgba(99,102,241,0.5)] active:scale-[0.98]"
+              className="flex-1 inline-flex items-center justify-center gap-2 h-11 sm:h-10 rounded-xl bg-brand-500 text-white text-sm font-semibold hover:bg-brand-600 transition-all shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_28px_rgba(99,102,241,0.5)] active:scale-[0.98]"
             >
               <Github className="h-4 w-4" />
               View on GitHub
@@ -743,7 +764,7 @@ function BilloCard() {
             {/* Secondary — case study */}
             <button
               onClick={() => setOpen(true)}
-              className="flex-1 inline-flex items-center justify-center gap-1.5 h-10 rounded-xl border border-[var(--border-strong)] text-sm font-medium text-[var(--text-primary)] hover:border-[var(--brand)] hover:text-[var(--brand)] transition-all active:scale-[0.98]"
+              className="flex-1 inline-flex items-center justify-center gap-1.5 h-11 sm:h-10 rounded-xl border border-[var(--border-strong)] text-sm font-medium text-[var(--text-primary)] hover:border-[var(--brand)] hover:text-[var(--brand)] transition-all active:scale-[0.98]"
             >
               View Case Study
               <ChevronRight className="h-4 w-4" />

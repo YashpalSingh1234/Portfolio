@@ -25,9 +25,9 @@ export function Blog() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="group rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] p-6 hover:border-[var(--border-strong)] transition-all duration-200"
+              className="group rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] p-5 sm:p-6 hover:border-[var(--border-strong)] transition-all duration-200"
             >
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex items-start justify-between gap-3 sm:gap-4">
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
                     {post.tags.map((tag) => (
@@ -49,7 +49,7 @@ export function Blog() {
                 </div>
                 <a
                   href={post.link}
-                  className="shrink-0 flex items-center gap-1 text-xs font-medium text-[var(--brand)] hover:text-brand-300 transition-colors group-hover:translate-x-1 duration-200"
+                  className="shrink-0 flex items-center gap-1 py-1 text-xs font-medium text-[var(--brand)] hover:text-brand-300 transition-colors group-hover:translate-x-1 duration-200"
                   aria-label={`Read ${post.title}`}
                 >
                   Read <ArrowRight className="h-3.5 w-3.5" />

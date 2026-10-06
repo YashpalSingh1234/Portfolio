@@ -58,7 +58,7 @@ export function Experience() {
                         className="w-full flex items-start justify-between p-4 text-left"
                         aria-expanded={isOpen}
                       >
-                        <div className="flex items-start gap-4 flex-1 min-w-0">
+                        <div className="flex items-start gap-3 sm:gap-4 flex-1 min-w-0">
                           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-500/10 border border-brand-500/20">
                             <Briefcase className="h-4 w-4 text-[var(--brand)]" />
                           </div>
@@ -75,13 +75,13 @@ export function Experience() {
                               <span className="font-mono text-[var(--text-tertiary)]">{exp.period}</span>
                             </div>
                             {exp.highlight && (
-                              <p className="mt-2 text-xs font-mono text-emerald-400">
+                              <p className="mt-2 text-xs font-mono text-emerald-400 break-words">
                                 ↑ {exp.highlight}
                               </p>
                             )}
                           </div>
                         </div>
-                        <div className="ml-4 shrink-0 text-[var(--text-tertiary)]">
+                        <div className="ml-3 sm:ml-4 shrink-0 text-[var(--text-tertiary)]">
                           {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
                         </div>
                       </button>

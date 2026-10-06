@@ -38,15 +38,15 @@ export default function NotFound() {
         404
       </h1>
 
-      <p className="mt-4 max-w-md text-base sm:text-lg text-[var(--text-secondary)]">
+      <p className="mt-4 max-w-md px-2 text-[0.9375rem] sm:text-lg text-[var(--text-secondary)]">
         This route couldn&apos;t be resolved. The page you&apos;re looking for doesn&apos;t exist
         or may have moved.
       </p>
 
-      <div className="mt-8 flex flex-wrap justify-center gap-3">
+      <div className="mt-8 flex w-full max-w-xs flex-col gap-3 sm:w-auto sm:max-w-none sm:flex-row sm:justify-center">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 h-12 px-6 rounded-xl bg-brand-500 text-white text-sm font-bold hover:bg-brand-600 transition-all shadow-[0_0_32px_rgba(99,102,241,0.5)] hover:shadow-[0_0_48px_rgba(99,102,241,0.7)] hover:-translate-y-0.5 active:scale-95"
+          className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-xl bg-brand-500 text-white text-sm font-bold hover:bg-brand-600 transition-all shadow-[0_0_32px_rgba(99,102,241,0.5)] hover:shadow-[0_0_48px_rgba(99,102,241,0.7)] hover:-translate-y-0.5 active:scale-95"
         >
           <Home className="h-4 w-4" aria-hidden="true" />
           Back to Home
